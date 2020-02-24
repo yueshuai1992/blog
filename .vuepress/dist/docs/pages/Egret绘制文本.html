@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Egret 绘制文本</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.0bb10e40.css" as="style"><link rel="preload" href="/assets/js/app.b8c9f267.js" as="script"><link rel="preload" href="/assets/js/2.5effd679.js" as="script"><link rel="preload" href="/assets/js/12.7b375376.js" as="script"><link rel="prefetch" href="/assets/js/10.1e9d6dd9.js"><link rel="prefetch" href="/assets/js/11.36899433.js"><link rel="prefetch" href="/assets/js/13.ca272700.js"><link rel="prefetch" href="/assets/js/14.62f85eb1.js"><link rel="prefetch" href="/assets/js/15.254f14ec.js"><link rel="prefetch" href="/assets/js/16.cd77e345.js"><link rel="prefetch" href="/assets/js/17.37843c59.js"><link rel="prefetch" href="/assets/js/18.ff049040.js"><link rel="prefetch" href="/assets/js/19.8b84c72e.js"><link rel="prefetch" href="/assets/js/20.c4e0cf47.js"><link rel="prefetch" href="/assets/js/21.5ca97ceb.js"><link rel="prefetch" href="/assets/js/22.1c3d3481.js"><link rel="prefetch" href="/assets/js/23.fe8a6329.js"><link rel="prefetch" href="/assets/js/24.6e50e452.js"><link rel="prefetch" href="/assets/js/25.4e3061bc.js"><link rel="prefetch" href="/assets/js/26.99d8657b.js"><link rel="prefetch" href="/assets/js/27.a658b46b.js"><link rel="prefetch" href="/assets/js/28.3a81a88b.js"><link rel="prefetch" href="/assets/js/29.7731a3d8.js"><link rel="prefetch" href="/assets/js/3.b60c999d.js"><link rel="prefetch" href="/assets/js/30.5e4771dc.js"><link rel="prefetch" href="/assets/js/31.8b7a30d8.js"><link rel="prefetch" href="/assets/js/32.01da18cd.js"><link rel="prefetch" href="/assets/js/33.db213850.js"><link rel="prefetch" href="/assets/js/34.80b14b0d.js"><link rel="prefetch" href="/assets/js/35.832af720.js"><link rel="prefetch" href="/assets/js/36.af7bb98e.js"><link rel="prefetch" href="/assets/js/37.d454caa4.js"><link rel="prefetch" href="/assets/js/38.480b5662.js"><link rel="prefetch" href="/assets/js/4.cd2082ce.js"><link rel="prefetch" href="/assets/js/5.90db7dea.js"><link rel="prefetch" href="/assets/js/6.0e3d16be.js"><link rel="prefetch" href="/assets/js/7.31ff4035.js"><link rel="prefetch" href="/assets/js/8.ef9b5fc6.js"><link rel="prefetch" href="/assets/js/9.be78d7b3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0bb10e40.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="egret-绘制文本"><a href="#egret-绘制文本" class="header-anchor">#</a> Egret 绘制文本</h3> <div class="language- extra-class"><pre class="language-text"><code>class TextTest extends egret.DisplayObjectContainer {
+    constructor() {
+        super();
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+    }
+    private onAddToStage() {
+        let message: egret.TextField = new egret.TextField();
+        message.text = '这\n是\n文\n本\n！\n！\n！\n'
+        message.textColor = 0xff00ff;
+        message.size = 40;
+        console.log(message.width, message.height)
+        this.addChild(message);
+    }
+}
+</code></pre></div><h5 id="设置内容"><a href="#设置内容" class="header-anchor">#</a> 设置内容</h5> <div class="language- extra-class"><pre class="language-text"><code>对象.text = 内容
+</code></pre></div><h5 id="设置颜色"><a href="#设置颜色" class="header-anchor">#</a> 设置颜色</h5> <div class="language- extra-class"><pre class="language-text"><code>对象.textColor = 0xffffff
+</code></pre></div><h5 id="设置字体"><a href="#设置字体" class="header-anchor">#</a> 设置字体</h5> <div class="language- extra-class"><pre class="language-text"><code>对象.fontFamily = &quot;KaiTi&quot;;
+</code></pre></div><h5 id="设置宽"><a href="#设置宽" class="header-anchor">#</a> 设置宽</h5> <div class="language- extra-class"><pre class="language-text"><code>对象.width = 200;
+</code></pre></div><h5 id="设置高"><a href="#设置高" class="header-anchor">#</a> 设置高</h5> <div class="language- extra-class"><pre class="language-text"><code>对象.height = 200;
+</code></pre></div><h5 id="设置布局"><a href="#设置布局" class="header-anchor">#</a> 设置布局</h5> <ul><li>对象.textAlign = egret.HorizontalAlign.CENTER; // 设置水平居中</li> <li>对象.textAlign = egret.HorizontalAlign.RIGHT; // 设置水平居右</li> <li>对象.textAlign = egret.HorizontalAlign.LEFT; // 设置水平居左</li> <li>对象.verticalAlign = egret.VerticalAlign.BOTTOM; // 垂直靠下</li> <li>对象.verticalAlign = egret.VerticalAlign.MIDDLE; // 垂直居中</li> <li>对象.verticalAlign = egret.VerticalAlign.TOP; // 垂直靠上</li></ul> <h5 id="设置描边"><a href="#设置描边" class="header-anchor">#</a> 设置描边</h5> <div class="language- extra-class"><pre class="language-text"><code>对象.strokeColor = 0xff00ff;
+对象.stroke = 2;
+</code></pre></div><h5 id="设置倾斜加粗"><a href="#设置倾斜加粗" class="header-anchor">#</a> 设置倾斜加粗</h5> <div class="language- extra-class"><pre class="language-text"><code>//设置粗体与斜体
+对象.bold = true;
+对象.italic = true;
+</code></pre></div><h5 id="多种样式文本混合"><a href="#多种样式文本混合" class="header-anchor">#</a> 多种样式文本混合</h5> <div class="language- extra-class"><pre class="language-text"><code>对象.textFlow = &lt;Array&lt;egret.ITextElement&gt;&gt;[
+    { text: 'Egret', style: { &quot;textColor&quot;: 0x336699, &quot;size&quot;: 60, stroke: 2, strokeColor: 0x6699cc } },
+    { text: &quot;里说一句话不能包含各种&quot;, style: { &quot;fontFamily&quot;: &quot;楷体&quot; } }, 
+    { text: &quot;五&quot;, style: { &quot;textColor&quot;: 0xff0000 } }
+]
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>对象.textFlow = (new egret.HtmlTextParser).parser(
+    '没有任何格式初始文本，' +
+    '&lt;font color=&quot;#0000ff&quot; size=&quot;30&quot; fontFamily=&quot;Verdana&quot;&gt;Verdana blue large&lt;/font&gt;' +
+    '&lt;font color=&quot;#ff7f50&quot; size=&quot;10&quot;&gt;珊瑚色&lt;b&gt;局部加粗&lt;/b&gt;小字体&lt;/font&gt;' +
+    '&lt;i&gt;斜体&lt;/i&gt;'
+);
+</code></pre></div><h5 id="文本超链接"><a href="#文本超链接" class="header-anchor">#</a> 文本超链接</h5> <p>注意：<code>tx.touchEnabled = true;</code>
+方法一：</p> <div class="language- extra-class"><pre class="language-text"><code>class TextHref extends egret.DisplayObjectContainer {
+    constructor() {
+        super();
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.drawText, this);
+    }
+    private drawText() {
+        var tx:egret.TextField = new egret.TextField;
+        tx.textFlow = new Array&lt;egret.ITextElement&gt;(
+            {'text': '这是超链接', 'style': {'href': 'event: text event triggered'}}
+        )
+        tx.touchEnabled = true;
+        tx.addEventListener( egret.TextEvent.LINK, function( evt:egret.TextEvent ){
+            location.href = 'https://www.baidu.com'
+        }, this );
+        tx.x = 10;
+        tx.y = 90;
+        this.addChild(tx);
+    }
+}
+</code></pre></div><p>方法二： 直接使用URL</p> <div class="language- extra-class"><pre class="language-text"><code>class TextHref extends egret.DisplayObjectContainer {
+    constructor() {
+        super();
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.drawText, this);
+    }
+    private drawText() {
+        var tx:egret.TextField = new egret.TextField();
+        tx.textFlow = &lt;Array&lt;egret.ITextElement&gt;&gt;[
+            {'text': '这是超链接', 'style': {'href': 'http://www.baidu.com'}}
+        ]
+        tx.touchEnabled = true;
+        tx.x = 10;
+        tx.y = 90;
+        this.addChild(tx);
+    }
+}
+</code></pre></div><h5 id="输入文本"><a href="#输入文本" class="header-anchor">#</a> 输入文本</h5> <div class="language- extra-class"><pre class="language-text"><code>txInput.type = egret.TextFieldType.INPUT;
+//设置输入文本的样式为文本
+text.inputType = egret.TextFieldInputType.TEXT;
+// pass.inputType = egret.TextFieldInputType.PASSWORD;
+// tel.inputType = egret.TextFieldInputType.TEL;
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>var text:egret.TextField = new egret.TextField();
+text.type = egret.TextFieldType.INPUT;
+//设置输入文本的样式为文本
+text.inputType = egret.TextFieldInputType.TEXT;
+text.text = &quot;输入文本:&quot;;
+text.width = 300;
+this.addChild(text);
+var pass:egret.TextField = new egret.TextField();
+pass.type = egret.TextFieldType.INPUT;
+//设置输入文本显示为密码
+pass.inputType = egret.TextFieldInputType.PASSWORD;
+//设置密码显示
+pass.displayAsPassword = true;
+pass.text = &quot;输入密码:&quot;;
+pass.y = 100;
+pass.width = 300;
+this.addChild(pass);
+var tel:egret.TextField = new egret.TextField();
+tel.type = egret.TextFieldType.INPUT;
+//设置输入电话号样式
+tel.inputType = egret.TextFieldInputType.TEL;
+tel.text = &quot;输入电话号:&quot;
+tel.y = 200;
+tel.width = 300;
+this.addChild(tel);
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b8c9f267.js" defer></script><script src="/assets/js/2.5effd679.js" defer></script><script src="/assets/js/12.7b375376.js" defer></script>
+  </body>
+</html>

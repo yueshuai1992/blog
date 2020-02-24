@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WEEX BindingX</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.0bb10e40.css" as="style"><link rel="preload" href="/assets/js/app.b8c9f267.js" as="script"><link rel="preload" href="/assets/js/2.5effd679.js" as="script"><link rel="preload" href="/assets/js/28.3a81a88b.js" as="script"><link rel="prefetch" href="/assets/js/10.1e9d6dd9.js"><link rel="prefetch" href="/assets/js/11.36899433.js"><link rel="prefetch" href="/assets/js/12.7b375376.js"><link rel="prefetch" href="/assets/js/13.ca272700.js"><link rel="prefetch" href="/assets/js/14.62f85eb1.js"><link rel="prefetch" href="/assets/js/15.254f14ec.js"><link rel="prefetch" href="/assets/js/16.cd77e345.js"><link rel="prefetch" href="/assets/js/17.37843c59.js"><link rel="prefetch" href="/assets/js/18.ff049040.js"><link rel="prefetch" href="/assets/js/19.8b84c72e.js"><link rel="prefetch" href="/assets/js/20.c4e0cf47.js"><link rel="prefetch" href="/assets/js/21.5ca97ceb.js"><link rel="prefetch" href="/assets/js/22.1c3d3481.js"><link rel="prefetch" href="/assets/js/23.fe8a6329.js"><link rel="prefetch" href="/assets/js/24.6e50e452.js"><link rel="prefetch" href="/assets/js/25.4e3061bc.js"><link rel="prefetch" href="/assets/js/26.99d8657b.js"><link rel="prefetch" href="/assets/js/27.a658b46b.js"><link rel="prefetch" href="/assets/js/29.7731a3d8.js"><link rel="prefetch" href="/assets/js/3.b60c999d.js"><link rel="prefetch" href="/assets/js/30.5e4771dc.js"><link rel="prefetch" href="/assets/js/31.8b7a30d8.js"><link rel="prefetch" href="/assets/js/32.01da18cd.js"><link rel="prefetch" href="/assets/js/33.db213850.js"><link rel="prefetch" href="/assets/js/34.80b14b0d.js"><link rel="prefetch" href="/assets/js/35.832af720.js"><link rel="prefetch" href="/assets/js/36.af7bb98e.js"><link rel="prefetch" href="/assets/js/37.d454caa4.js"><link rel="prefetch" href="/assets/js/38.480b5662.js"><link rel="prefetch" href="/assets/js/4.cd2082ce.js"><link rel="prefetch" href="/assets/js/5.90db7dea.js"><link rel="prefetch" href="/assets/js/6.0e3d16be.js"><link rel="prefetch" href="/assets/js/7.31ff4035.js"><link rel="prefetch" href="/assets/js/8.ef9b5fc6.js"><link rel="prefetch" href="/assets/js/9.be78d7b3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0bb10e40.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="weex-bindingx"><a href="#weex-bindingx" class="header-anchor">#</a> WEEX BindingX</h3> <h5 id="_1-由客户端同学集成bindingx-到客户端中"><a href="#_1-由客户端同学集成bindingx-到客户端中" class="header-anchor">#</a> 1. 由客户端同学集成bindingx 到客户端中</h5> <h5 id="_2-前端的使用如下："><a href="#_2-前端的使用如下：" class="header-anchor">#</a> 2. 前端的使用如下：</h5> <ul><li>安装npm依赖</li></ul> <div class="language- extra-class"><pre class="language-text"><code>$ npm install weex-bindingx --save
+</code></pre></div><ul><li>在JS代码中引入BindingX模块</li></ul> <div class="language- extra-class"><pre class="language-text"><code>import bindingx from &quot;weex-bindingx/lib/index.weex.js&quot;;
+</code></pre></div><h5 id="_3-使用"><a href="#_3-使用" class="header-anchor">#</a> 3. 使用</h5> <ul><li>获取节点</li></ul> <div class="language- extra-class"><pre class="language-text"><code>let box = getEl(this.$refs.box);
+</code></pre></div><ul><li><p>绑定事件</p> <ul><li>bindingx.bind({参数},回调函数)</li> <li>写法：</li></ul> <div class="language- extra-class"><pre class="language-text"><code>bindingx.bind({
+    anchor: box, // anchor指的是事件的触发者，如果是eventType是&quot;orientation&quot;或&quot;timing&quot;,则不用填
+    eventType: &quot;pan&quot;, // 事件类型
+    props:  [
+        {
+        element:  '' &quot;,  // 要改变的视图的引用或者id
+        property: &quot;transform.translateX&quot;, // 要改变的属性
+        expression:  {}  //表达式
+        ......
+        }
+    ]
+},  e=&gt;{
+    //回调的状态（比如开始touch  结束touch）通过状态来判断。
+    if(e.state ==='end'){
+        this.x +=  e.daltaX; // 相对于起始触点的横移（右为负左为正）
+        this.y +=  e.deltaY; // 相对于起始触点的纵移（上为负下为正）
+    }
+})
+</code></pre></div></li></ul> <h5 id="_4-api接口定义"><a href="#_4-api接口定义" class="header-anchor">#</a> 4. API接口定义</h5> <h6 id="_1-prepare-params-传入的是一个对象"><a href="#_1-prepare-params-传入的是一个对象" class="header-anchor">#</a> 1. prepare(params)  传入的是一个对象</h6> <div class="language- extra-class"><pre><code>1. 开启绑定，此方法仅用于eventType为pan的情况。其他类型的eventType可不调用此方法。
+2. 参数解析
+```
+bindingx.prepare({
+    anchor: box,  //  anchor指的是事件的触发者
+    eventType: &quot;pan&quot;  //  事件类型
+})
+```
+3. 没有返回值 目前仅手势pan 需要prepare
+</code></pre></div><h6 id="_2-bind-params-callback-（主角）"><a href="#_2-bind-params-callback-（主角）" class="header-anchor">#</a> 2. bind(params,callback)   （主角）</h6> <ul><li>第一个参数是Object
+<ul><li>eventType 事件类型</li> <li>exitExpression 边界条件
+<ul><li>transformed (String):  转化后的表达式</li> <li>origin (String): 原始表达式</li></ul></li> <li>props  运行时参数列表（Array）
+<ul><li>element(String): 作用的元素(View)</li> <li>property(String): 作用的属性</li> <li>expression(String): 运行时的表达式</li> <li>transformed(String): 转化后的表达式</li> <li>origin(String): 原始表达式</li> <li>config: 额外配置</li> <li>perspective(Int): 透视。用于调整camera位置。</li> <li>transformOrigin(String): 轴心。格式为(left|right|center top|bottom|center)。比如 left center。</li> <li>anchor: 锚点(可选, 目前仅pan/scroll需要指定锚点)</li></ul></li></ul></li> <li>第二个参数是callback</li></ul> <blockquote><p>state 运行时的状态回调,通常包括start|end|exit</p></blockquote> <ul><li>返回值
+<ul><li>token: 用于unbind，eventType为pan/scroll时即anchor，timing/orientation时系统生成。(Object类型)</li></ul></li></ul> <blockquote><p>注: 对于pan/scroll类型，token即anchor，对同一个anchor多次bind，则会覆盖</p></blockquote> <h6 id="_3-unbind-params-解绑指定的expressionbinding实例。"><a href="#_3-unbind-params-解绑指定的expressionbinding实例。" class="header-anchor">#</a> 3. unbind(params) 解绑指定的ExpressionBinding实例。</h6> <ul><li>入参类型: 接收一个参数，类型为Object</li> <li>入参详细说明:
+<ul><li>params:(Object)</li> <li>token: 由bind方法返回的特定ExpressionBinding实例. (必选)</li> <li>eventType: 事件类型(如pan). (必选)</li></ul></li> <li>返回值: 无</li></ul> <h6 id="_4-unbindall-解绑所有的expressionbinding实例"><a href="#_4-unbindall-解绑所有的expressionbinding实例" class="header-anchor">#</a> 4. unbindAll()  解绑所有的ExpressionBinding实例</h6> <ul><li>入参类型: 无</li> <li>返回值: 无</li></ul> <h6 id="_5-supportfeatures-返回当前组件支持的eventtype列表"><a href="#_5-supportfeatures-返回当前组件支持的eventtype列表" class="header-anchor">#</a> 5. supportFeatures() 返回当前组件支持的EventType列表</h6> <ul><li>入参类型: 无</li> <li>返回值:(Array) 支持的EventType列表</li> <li>返回值:(Array) 支持的EventType列表</li></ul> <h6 id="_6-getcomputedstyle-ref-返回目标视图的相关属性。"><a href="#_6-getcomputedstyle-ref-返回目标视图的相关属性。" class="header-anchor">#</a> 6. getComputedStyle(ref)返回目标视图的相关属性。</h6> <ul><li>入参类型: 接收一个参数，为视图的引用。</li> <li>入参详细说明:</li> <li>ref: 视图的引用</li> <li>返回值: Object类型，返回视图的属性集合。属性包括:</li> <li>translateX/translateY/rotateX/rotateY/rotateZ/scaleX/scaleY/opacity/background-color/color。</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b8c9f267.js" defer></script><script src="/assets/js/2.5effd679.js" defer></script><script src="/assets/js/28.3a81a88b.js" defer></script>
+  </body>
+</html>

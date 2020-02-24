@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Egret 基础</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.0bb10e40.css" as="style"><link rel="preload" href="/assets/js/app.b8c9f267.js" as="script"><link rel="preload" href="/assets/js/2.5effd679.js" as="script"><link rel="preload" href="/assets/js/9.be78d7b3.js" as="script"><link rel="prefetch" href="/assets/js/10.1e9d6dd9.js"><link rel="prefetch" href="/assets/js/11.36899433.js"><link rel="prefetch" href="/assets/js/12.7b375376.js"><link rel="prefetch" href="/assets/js/13.ca272700.js"><link rel="prefetch" href="/assets/js/14.62f85eb1.js"><link rel="prefetch" href="/assets/js/15.254f14ec.js"><link rel="prefetch" href="/assets/js/16.cd77e345.js"><link rel="prefetch" href="/assets/js/17.37843c59.js"><link rel="prefetch" href="/assets/js/18.ff049040.js"><link rel="prefetch" href="/assets/js/19.8b84c72e.js"><link rel="prefetch" href="/assets/js/20.c4e0cf47.js"><link rel="prefetch" href="/assets/js/21.5ca97ceb.js"><link rel="prefetch" href="/assets/js/22.1c3d3481.js"><link rel="prefetch" href="/assets/js/23.fe8a6329.js"><link rel="prefetch" href="/assets/js/24.6e50e452.js"><link rel="prefetch" href="/assets/js/25.4e3061bc.js"><link rel="prefetch" href="/assets/js/26.99d8657b.js"><link rel="prefetch" href="/assets/js/27.a658b46b.js"><link rel="prefetch" href="/assets/js/28.3a81a88b.js"><link rel="prefetch" href="/assets/js/29.7731a3d8.js"><link rel="prefetch" href="/assets/js/3.b60c999d.js"><link rel="prefetch" href="/assets/js/30.5e4771dc.js"><link rel="prefetch" href="/assets/js/31.8b7a30d8.js"><link rel="prefetch" href="/assets/js/32.01da18cd.js"><link rel="prefetch" href="/assets/js/33.db213850.js"><link rel="prefetch" href="/assets/js/34.80b14b0d.js"><link rel="prefetch" href="/assets/js/35.832af720.js"><link rel="prefetch" href="/assets/js/36.af7bb98e.js"><link rel="prefetch" href="/assets/js/37.d454caa4.js"><link rel="prefetch" href="/assets/js/38.480b5662.js"><link rel="prefetch" href="/assets/js/4.cd2082ce.js"><link rel="prefetch" href="/assets/js/5.90db7dea.js"><link rel="prefetch" href="/assets/js/6.0e3d16be.js"><link rel="prefetch" href="/assets/js/7.31ff4035.js"><link rel="prefetch" href="/assets/js/8.ef9b5fc6.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0bb10e40.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="egret-基础"><a href="#egret-基础" class="header-anchor">#</a> Egret 基础</h3> <ol><li>直接继承DisplayObject的类都属于非容器。</li> <li>继承自DisplayObjectContainer的类都属于容器。</li></ol> <h4 id="命令行"><a href="#命令行" class="header-anchor">#</a> 命令行</h4> <p>egret create  project_name 创建项目</p> <p>Egret create room-go  --type eui 创建eui项目</p> <p>egret build 构建项目</p> <p>egret startserver -a 启动服务（自动编译）</p> <p>egret info 获取版本信息</p> <p>egret publish 发布（生成bin-replease包）</p> <p>egret publish --target wxgame 发布微信版本包</p> <h4 id="打开性能面板"><a href="#打开性能面板" class="header-anchor">#</a> 打开性能面板</h4> <div class="language- extra-class"><pre class="language-text"><code>data-show-fps=&quot;true&quot; data-show-log=&quot;true&quot;
+</code></pre></div><ul><li>draw: 这里参数描述的是当前页面渲染时候drawcall的次数</li> <li>cost：包含四个参数，EnterFrame阶段的开销，引擎updateTranform开销，引擎draw开销，html5 cavans开销</li> <li>fps: 当前画面帧频</li></ul> <h4 id="配置打开的容器"><a href="#配置打开的容器" class="header-anchor">#</a> 配置打开的容器</h4> <p>2.5之前配置egretProperties.json,在文件中使用</p> <p>2.5之后设置 data-entry-class=&quot;Main&quot;</p> <h4 id="目录结构"><a href="#目录结构" class="header-anchor">#</a> 目录结构</h4> <ul><li>src 目录，存放我们的代码。我们编写的代码都放在src目录下面。</li> <li>bin-debug 目录，项目编译和运行的debug目录，一般我们不要修改该目录下的内容。</li> <li>libs 目录，这里面存放我们的库文件，包括 Egret 核心库和其他扩展库。当然以后添加了第三方库的话也会放在这里。</li> <li>resource 目录，这里放置我们的资源文件，这里面有一个default.res.json 配置文件，用来配置资源。</li> <li>template 目录，这里是项目调试过程中所需的目录，一般我们不需要修改该目录下的内容。</li> <li>egretProperties.json 项目的配置文件，一般我们会用到里面的modules 字段来配置项目的模块。</li> <li>index.html 项目访问的入口文件，我们可以在这里面配置项目的旋转缩放模式背景颜色等。</li> <li>favicon.ico 一个ico。</li></ul> <h4 id="index-html"><a href="#index-html" class="header-anchor">#</a> index.html</h4> <div class="language- extra-class"><pre class="language-text"><code>&lt;div style=&quot;margin: auto;width: 100%;height: 100%;&quot; class=&quot;egret-player&quot;
+     data-entry-class=&quot;Main&quot;
+     data-orientation=&quot;auto&quot;
+     data-scale-mode=&quot;showAll&quot;
+     data-resolution-mode=&quot;retina&quot;
+     data-frame-rate=&quot;30&quot;
+     data-content-width=&quot;480&quot;
+     data-content-height=&quot;800&quot;
+     data-show-paint-rect=&quot;false&quot;
+     data-multi-fingered=&quot;2&quot;
+     data-show-fps=&quot;false&quot; data-show-log=&quot;false&quot;
+     data-log-filter=&quot;&quot; data-show-fps-style=&quot;x:0,y:0,size:30,textColor:0x00c200,bgAlpha:0.9&quot;&gt; &lt;/div&gt;
+</code></pre></div><ul><li>data-entry-class=”Main” 设置项目的入口文件，表示项目的入口类，默认为Main,如果需要自定义的话需要在项目中先创建类，然后在这里配置类的名字。</li> <li>data-orientation=”auto” 设置旋转模式。</li> <li>data-scale-mode=”showAll” 设置缩放模式。</li> <li>data-frame-rate=”30” 这里是运行的帧率。</li> <li>data-content-width=”480” 和 data-content-height=”800” 用来设置舞台的设计宽和高</li> <li>data-show-paint-rect=”false” 设置显示脏矩形的重绘区域。</li> <li>data-multi-fingered=”2” 设置多指触摸</li> <li>data-show-fps=”false” data-show-log=”false” 这里设置显示帧率和log，只有在调试时会显示，发布的版本会去掉。</li> <li>data-log-filter=”” 设置一个正则表达式过滤条件，日志文本匹配这个正则表达式的时候才显示这条日志。如 data-log-filter=&quot;^egret&quot; 表示仅显示以 egret 开头的日志。</li> <li>data-show-fps-style=”x:0,y:0,size:30,textColor:0x00c200,bgAlpha:0.9” 这里设置fps面板的样式。目前支持默认的这几种设置，修改其值即可，比如修改面板位置可以设置x和y,改变大小可以设置size,改变文字颜色textColor，改变背景面板的透明度bgAlpha。</li></ul> <h4 id="基本类结构"><a href="#基本类结构" class="header-anchor">#</a> 基本类结构</h4> <div class="language- extra-class"><pre class="language-text"><code>class DisplayObject extends egret.DisplayObjectContainer {
+    constructor(parameters) {
+        super();
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+    }
+
+    private onAddToStage() {
+        // 实例化egret.Sprite()
+        let spr: egret.Sprite = new egret.Sprite();
+        // 设置填充颜色
+        spr.graphics.beginFill(0xff0000);
+        // 画正方形
+        spr.graphics.drawRect(100, 100, 200, 200);
+        // 绘画结束
+        spr.graphics.endFill();
+        spr.x = 100;
+        spr.y = 200;
+        this.addChild(spr);
+    }
+}
+</code></pre></div><p><code>eg: spr.scaleX = 0.5;</code></p> <ul><li>alpha：透明度</li> <li>width：宽度</li> <li>height：高度</li> <li>rotation：旋转角度</li> <li>scaleX：横向缩放</li> <li>scaleY：纵向缩放</li> <li>skewX：横向斜切</li> <li>skewY：纵向斜切</li> <li>visible：是否可见 // spr.visible = true|false;</li> <li>x：X轴坐标值</li> <li>y：Y轴坐标值</li></ul> <h4 id="核心显示类"><a href="#核心显示类" class="header-anchor">#</a> 核心显示类</h4> <table><thead><tr><th>类</th> <th>描述</th></tr></thead> <tbody><tr><td>DisplayObject</td> <td>显示对象基类，所有显示对象均继承自此类</td></tr> <tr><td>Bitmap</td> <td>位图，用来显示图片</td></tr> <tr><td>Shape</td> <td>用来显示矢量图，可以使用其中的方法绘制矢量图形</td></tr> <tr><td>DisplayObjectContainer</td> <td>显示对象容器接口，所有显示对象容器均实现此接口</td></tr> <tr><td>Sprite</td> <td>轻量级显示容器</td></tr> <tr><td>Stage</td> <td>舞台类</td></tr> <tr><td>TextField</td> <td>文本类</td></tr> <tr><td>TextInput</td> <td>输入文本类</td></tr></tbody></table> <h4 id="遮罩-mask"><a href="#遮罩-mask" class="header-anchor">#</a> 遮罩 Mask</h4> <p>可以通过将一个显示对象用作遮罩来创建一个孔洞，透过该孔洞使另一个显示对象的内容可见。</p> <div class="language- extra-class"><pre class="language-text"><code>private onAddToStage() {
+    let shp: egret.Shape = new egret.Shape();
+    shp.graphics.beginFill(0xff00ff);
+    shp.graphics.drawRect(100, 100, 200, 200);
+    shp.graphics.endFill();
+    this.addChild(shp);
+    
+    let shp2: egret.Shape = new egret.Shape();
+    shp2.graphics.beginFill(0x00ff00);
+    shp2.graphics.drawCircle(0, 0, 50);
+    shp2.graphics.endFill();
+    shp2.x = 100;
+    shp2.y = 100;
+    this.addChild(shp2);
+    // 其左上角由 x 和 y 参数指定，并具有指定的 width 和 height 参数
+    let rect: egret.Rectangle = new egret.Rectangle(0, 0, 130, 150);
+    shp2.mask = rect; 
+}
+</code></pre></div><h4 id="检查碰撞"><a href="#检查碰撞" class="header-anchor">#</a> 检查碰撞</h4> <p>要测试的此对象的 x 坐标，要测试的此对象的 y 坐标，==true为检查对象，false为检查边框==</p> <div class="language- extra-class"><pre class="language-text"><code>private onAddToStage() {
+    // 重绘过程
+    this.drawText();
+    let shap: egret.Shape = new egret.Shape();
+    shap.graphics.beginFill(0xf0f0f0);
+    shap.graphics.drawRect(30, 40, 100, 100);
+    shap.graphics.endFill();
+    this.addChild(shap);
+    /**
+     * @param x — 要测试的此对象的 x 坐标。
+     * @param y — 要测试的此对象的 y 坐标。
+     * @param shapeFlag — 是检查对象 (true) 的实际像素，还是检查边框 (false) 的实际像素。
+     */
+    let isHit: boolean = shap.hitTestPoint(20, 30);
+    this.info.text += isHit;
+}
+</code></pre></div><h4 id="自定义显示对象类"><a href="#自定义显示对象类" class="header-anchor">#</a> 自定义显示对象类</h4> <p>自定义显示对象类需要继承DisplayObject的具体子类</p> <p><strong>MyGrid.ts</strong></p> <div class="language- extra-class"><pre class="language-text"><code>class MyGrid extends egret.Shape {
+    constructor() {
+        super();
+        this.drawGrid();
+    }
+    private drawGrid() {
+        this.graphics.beginFill(0xfff00);
+        this.graphics.drawRect(0, 0, 100, 100);
+        this.graphics.endFill();
+
+        this.graphics.beginFill(0x0f0f00);
+        this.graphics.drawRect(100, 0, 100, 100);
+        this.graphics.endFill();
+
+        this.graphics.beginFill(0x0f0f00);
+        this.graphics.drawRect(0, 100, 100, 100);
+        this.graphics.endFill();
+
+        this.graphics.beginFill(0xfff00);
+        this.graphics.drawRect(100, 100, 100, 100);
+        this.graphics.endFill();
+    }
+}
+</code></pre></div><p><strong>Grid.ts</strong></p> <div class="language- extra-class"><pre class="language-text"><code>class Grid extends egret.DisplayObjectContainer {
+    constructor() {
+        super();
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+    }
+    
+    private onAddToStage() {
+        let g: MyGrid = new MyGrid();
+        this.addChild(g);
+    }
+}
+</code></pre></div><h4 id="锚点"><a href="#锚点" class="header-anchor">#</a> 锚点</h4> <p>每一个显示对象都包含一个锚点,该锚点默认位于显示对象的左上角。
+当设置一个显示对象的坐标位置时,我们会以锚点为参照改变显示对象绘图位置</p> <div class="language- extra-class"><pre class="language-text"><code>class Anchor extends egret.DisplayObjectContainer {
+    constructor() {
+        super();
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+    }
+
+    private onAddToStage() {
+        let box: egret.Shape = new egret.Shape();
+        box.graphics.beginFill(0x423234);
+        box.graphics.drawRect(0, 0, 100, 100);
+        box.graphics.endFill();
+        box.x = 300;
+        box.y = 200;
+        this.addChild(box);
+
+        box.anchorOffsetX = 100;
+        box.anchorOffsetY = 60;
+    }
+}
+</code></pre></div><h4 id="显示容器的概念与实现"><a href="#显示容器的概念与实现" class="header-anchor">#</a> 显示容器的概念与实现</h4> <p>DisplayObjectContainer 封装了一些显示列表中常用的功能。在后面的内容中，我们将详细介绍显示列表的操作。这些常用操作主要分为四类：</p> <ul><li>添加、删除子对象</li> <li>访问子对象</li> <li>检测子对象</li> <li>设置叠放次序</li></ul> <p>Sprite|轻量级显示容器</p> <p>Sprite仅仅是继承 DisplayObjectContainer。同时添加了一个Graphics功能</p> <h4 id="添加与删除显示对象"><a href="#添加与删除显示对象" class="header-anchor">#</a> 添加与删除显示对象</h4> <p>在Egret中建立显示对象和渲染显示对象是两个过程。建立显示对象后,对象会处于内存中,但不会参与渲染过程,只有把显示对象放到显示列表后,显示对象才会参与渲染过程。如果想将某个显示对象从渲染过程中删除,只需要将其移除显示列表即可</p> <p>顺序：</p> <ul><li>舞台（容器）
+<ul><li>文档类（容器）
+<ul><li>spr （容器）</li></ul></li></ul></li></ul> <div class="language- extra-class"><pre class="language-text"><code>class AddView extends egret.DisplayObjectContainer {
+    constructor() {
+        super();
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+    }
+
+    private onAddToStage(event: egret.Event) {
+        let box: egret.Sprite = new egret.Sprite();
+        box.graphics.beginFill(0xff0000);
+        box.graphics.drawRect(0, 0, 200, 200);
+        box.graphics.endFill();
+        // 该对象存在
+        this.addChild(box);
+        // 参与添加渲染
+    }
+}
+</code></pre></div><h5 id="删除显示对象"><a href="#删除显示对象" class="header-anchor">#</a> 删除显示对象</h5> <div class="language- extra-class"><pre class="language-text"><code>this.removeChild(box);
+</code></pre></div><ul><li>显示对象独立于显示列表</li> <li>相对坐标系</li> <li>多次添加显示对象到显示列表</li></ul> <blockquote><p>同一个显示对象无论被代码加入显示列表多少次，在屏幕上只绘制一次。
+如果一个显示对象A被添加到了B这个容器中，然后A又被添加到了C容器中。那么在第二次执行 C.addChild(A) 的时候，A自动的从B容器中被删除，然后添加到C容器中。</p></blockquote> <ul><li>删除操作的注意点</li></ul> <div class="language- extra-class"><pre class="language-text"><code>if( spr.parent )
+{
+    spr.parent.removeChild( spr );
+}
+</code></pre></div><h5 id="深度管理"><a href="#深度管理" class="header-anchor">#</a> 深度管理</h5> <p>每一个容器都会有一个自己的深度管理功能，这个深度管理就好像我们排队一样</p> <ol><li>获取容器的数量</li></ol> <div class="language- extra-class"><pre class="language-text"><code>容器.numChildren
+</code></pre></div><ol start="2"><li>添加/删除指定深度的对象</li></ol> <p>添加</p> <div class="language- extra-class"><pre class="language-text"><code>容器.addChild(); // 在末尾添加
+容器.addChildAt( 显示对象, 深度值 ) // 在某个位置添加
+</code></pre></div><p>删除元素</p> <div class="language- extra-class"><pre class="language-text"><code>容器.removeChildAt(0); // 删除某个位置的元素
+容器.removeChildren(); // 全部删除
+</code></pre></div><ol start="3"><li>交换不同深度对象</li></ol> <div class="language- extra-class"><pre class="language-text"><code>容器.swapChildren( 显示对象, 显示对象 ) // 交换对象1 和 对象2 的位置
+容器.swapChildrenAt( 深度值, 深度值 ) // 交换对象根据值
+</code></pre></div><ol start="4"><li>重设子对象深度</li></ol> <div class="language- extra-class"><pre class="language-text"><code>容器.setChildIndex( 显示对象, 新的深度值 );
+</code></pre></div><h5 id="访问容器子对象"><a href="#访问容器子对象" class="header-anchor">#</a> 访问容器子对象</h5> <p>通过深度值获取子对象(推荐使用)</p> <div class="language- extra-class"><pre class="language-text"><code>容器.getChildAt( 深度值 );
+let _box: egret.DisplayObject = box.getChildAt(1);
+</code></pre></div><p>通过Name属性获取</p> <div class="language- extra-class"><pre class="language-text"><code>容器.getChildAt(name)
+let _box1: egret.DisplayObject = box.getChildByName('box1');
+</code></pre></div><p>eg:</p> <div class="language- extra-class"><pre class="language-text"><code>private onAddToStage() {
+    let box: egret.Sprite = new egret.Sprite();
+    this.addChild(box);
+
+    let box1: egret.Sprite = new egret.Sprite();
+    box1.graphics.beginFill(0xff00ff);
+    box1.graphics.drawRect(20, 20, 200, 200);
+    box1.graphics.endFill();
+    box1.name = 'box1';
+    box.addChild(box1);
+
+    let box2: egret.Sprite = new egret.Sprite();
+    box2.graphics.beginFill(0x00ffff);
+    box2.graphics.drawRect(20, 20, 200, 200);
+    box2.graphics.endFill();
+    box2.y = 300;
+    box.addChild(box2);
+
+    let _box2: egret.DisplayObject = box.getChildAt(1);
+    _box2.x = 300;
+    let _box1: egret.DisplayObject = box.getChildByName('box1');
+    _box1.x = 250;
+}
+</code></pre></div><h4 id="开启webgl渲染"><a href="#开启webgl渲染" class="header-anchor">#</a> 开启webgl渲染</h4> <p>在index.html中</p> <div class="language- extra-class"><pre class="language-text"><code>egret.runEgret({renderMode:&quot;webgl&quot;});
+</code></pre></div><h4 id="事件处理机制的原理"><a href="#事件处理机制的原理" class="header-anchor">#</a> 事件处理机制的原理</h4> <p>事件机制包含4个步骤：注册侦听器，发送事件，侦听事件，移除侦听器。这四个步骤是按照顺序来执行的。</p> <p>自定义事件</p> <div class="language- extra-class"><pre class="language-text"><code>/**
+ * constructor
+ * type指定我们事件的类型，在“约会”的例子中，我们的type事件类型为“DATE”。我们经常使用的事件类型有“ADDED”、“COMPLETE”等。\
+ * bubbles是指定事件是否参与事件流的冒泡阶段，关于事件流，会在后面的小节中介绍。
+ * cancelable表示是否要取消Event对象。
+ */
+public constructor(type:string, bubbles:boolean=false, cancelable:boolean=false) {
+    super(type,bubbles,cancelable);
+}
+</code></pre></div><p>事件侦听器</p> <ul><li>ype表示事件类型。</li> <li>listener就是用来处理事件的侦听器。</li> <li>thisObject比较特殊，一般我们填写this。因为TypeScript与JavaScript的this作用域不同，其this指向也会不同</li> <li>useCapture 事件冒泡、捕获</li> <li>priority 该属性为一个number类型，当数字越大，则优先级越大</li></ul> <div class="language- extra-class"><pre class="language-text"><code>public addEventListener(type:string, listener:Function, thisObject:any, useCapture:boolean = false, priority:number = 0)
+</code></pre></div><p>注册侦听器</p> <div class="language- extra-class"><pre class="language-text"><code>事件发送者.addEventListener(事件类型, 侦听器, this);
+</code></pre></div><p>移除侦听器</p> <div class="language- extra-class"><pre class="language-text"><code>事件发送者.removeEventListener(事件类型, 侦听器, this);
+</code></pre></div><p>检测侦听器</p> <div class="language- extra-class"><pre class="language-text"><code>事件发送者.hasEventListener(事件类型);
+</code></pre></div><p>TouchEvent的启动开关</p> <div class="language- extra-class"><pre class="language-text"><code>显示对象实例.touchEnabled = false;
+</code></pre></div><p>触摸事件</p> <div class="language- extra-class"><pre class="language-text"><code>box.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
+this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
+</code></pre></div><p>一个点击的流程一般会触发3个 touch 事件：TouchBegin 触摸开始，TouchEnd 触摸结束，TouchTap 点击。</p> <div class="language- extra-class"><pre class="language-text"><code>class TouchEventTest extends egret.DisplayObjectContainer {
+    private eventText: egret.TextField;
+
+    constructor() {
+        super();
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+    }
+
+    private onAddToStage(event: egret.Event) {
+        this.drawText();
+        let box: egret.Sprite = new egret.Sprite();
+        box.graphics.beginFill(0xff00ff);
+        box.graphics.drawRect(100, 100, 200, 200);
+        box.graphics.endFill();
+        this.addChild(box);
+
+        box.touchEnabled = true;
+        box.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTap, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTaps, this, true);
+    }
+
+    private onTouch() {
+        this.eventText.text += &quot;\n点击了box&quot;;
+    }
+
+    private onTouchTap() {
+        this.eventText.text += &quot;\n容器冒泡侦听\n---------&quot;;
+    }
+
+    private onTouchTaps() {
+        this.eventText.text += &quot;\n容器捕获侦听\n---------&quot;;
+    }
+
+    private drawText() {
+        this.eventText = new egret.TextField();
+        this.eventText.text = '事件文字'
+        this.eventText.size = 28;
+        this.eventText.textColor = 0x7722ff;
+        this.addChild(this.eventText);
+    }
+}
+</code></pre></div><p>Egret发布小游戏报错：p2 is not defined：
+https://xmanyou.com/egretfa-bu-xiao-you-xi-bao-cuo-p2-is-not-defined/
+白鹭H5游戏移植到微信小游戏笔记：
+https://xmanyou.com/egret-wxgame-migration/</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b8c9f267.js" defer></script><script src="/assets/js/2.5effd679.js" defer></script><script src="/assets/js/9.be78d7b3.js" defer></script>
+  </body>
+</html>

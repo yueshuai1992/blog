@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TypeScript 基础</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.0bb10e40.css" as="style"><link rel="preload" href="/assets/js/app.b8c9f267.js" as="script"><link rel="preload" href="/assets/js/2.5effd679.js" as="script"><link rel="preload" href="/assets/js/27.a658b46b.js" as="script"><link rel="prefetch" href="/assets/js/10.1e9d6dd9.js"><link rel="prefetch" href="/assets/js/11.36899433.js"><link rel="prefetch" href="/assets/js/12.7b375376.js"><link rel="prefetch" href="/assets/js/13.ca272700.js"><link rel="prefetch" href="/assets/js/14.62f85eb1.js"><link rel="prefetch" href="/assets/js/15.254f14ec.js"><link rel="prefetch" href="/assets/js/16.cd77e345.js"><link rel="prefetch" href="/assets/js/17.37843c59.js"><link rel="prefetch" href="/assets/js/18.ff049040.js"><link rel="prefetch" href="/assets/js/19.8b84c72e.js"><link rel="prefetch" href="/assets/js/20.c4e0cf47.js"><link rel="prefetch" href="/assets/js/21.5ca97ceb.js"><link rel="prefetch" href="/assets/js/22.1c3d3481.js"><link rel="prefetch" href="/assets/js/23.fe8a6329.js"><link rel="prefetch" href="/assets/js/24.6e50e452.js"><link rel="prefetch" href="/assets/js/25.4e3061bc.js"><link rel="prefetch" href="/assets/js/26.99d8657b.js"><link rel="prefetch" href="/assets/js/28.3a81a88b.js"><link rel="prefetch" href="/assets/js/29.7731a3d8.js"><link rel="prefetch" href="/assets/js/3.b60c999d.js"><link rel="prefetch" href="/assets/js/30.5e4771dc.js"><link rel="prefetch" href="/assets/js/31.8b7a30d8.js"><link rel="prefetch" href="/assets/js/32.01da18cd.js"><link rel="prefetch" href="/assets/js/33.db213850.js"><link rel="prefetch" href="/assets/js/34.80b14b0d.js"><link rel="prefetch" href="/assets/js/35.832af720.js"><link rel="prefetch" href="/assets/js/36.af7bb98e.js"><link rel="prefetch" href="/assets/js/37.d454caa4.js"><link rel="prefetch" href="/assets/js/38.480b5662.js"><link rel="prefetch" href="/assets/js/4.cd2082ce.js"><link rel="prefetch" href="/assets/js/5.90db7dea.js"><link rel="prefetch" href="/assets/js/6.0e3d16be.js"><link rel="prefetch" href="/assets/js/7.31ff4035.js"><link rel="prefetch" href="/assets/js/8.ef9b5fc6.js"><link rel="prefetch" href="/assets/js/9.be78d7b3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0bb10e40.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="typescript-基础"><a href="#typescript-基础" class="header-anchor">#</a> TypeScript 基础</h3> <h5 id="安装typescript"><a href="#安装typescript" class="header-anchor">#</a> 安装typescript</h5> <div class="language- extra-class"><pre><code>npm i typescript -g
+</code></pre></div><h5 id="初始化tsconfig-json"><a href="#初始化tsconfig-json" class="header-anchor">#</a> 初始化tsconfig.json</h5> <div class="language- extra-class"><pre><code>tsc -init
+</code></pre></div><h6 id="解决模块的声明文件问题"><a href="#解决模块的声明文件问题" class="header-anchor">#</a> 解决模块的声明文件问题</h6> <div class="language- extra-class"><pre><code>npm i @types/node -D
+</code></pre></div><h5 id="编译ts文件"><a href="#编译ts文件" class="header-anchor">#</a> 编译ts文件</h5> <div class="language- extra-class"><pre><code>tsc -p tsconfig.json
+</code></pre></div><h5 id="定义"><a href="#定义" class="header-anchor">#</a> 定义</h5> <div class="language- extra-class"><pre><code>var str:string = 'hello world';
+console.log(str);
+</code></pre></div><h5 id="数据类型"><a href="#数据类型" class="header-anchor">#</a> 数据类型</h5> <ul><li>Undefined :</li> <li>Number:数值类型;</li> <li>string : 字符串类型;</li> <li>Boolean: 布尔类型；</li> <li>enum：枚举类型；</li> <li>any : 任意类型，一个牛X的类型；</li> <li>void：没有任何类型；</li> <li>Array : 数组类型;</li> <li>Tuple : 元祖类型；</li> <li>Null ：空类型。</li></ul> <h5 id="数组"><a href="#数组" class="header-anchor">#</a> 数组</h5> <p>第一种：</p> <div class="language- extra-class"><pre class="language-text"><code>let lists: number[] = [1, 2, 3];
+</code></pre></div><p>第二种：</p> <div class="language- extra-class"><pre class="language-text"><code>let lists: Array&lt;number&gt; = [];
+</code></pre></div><h5 id="元组"><a href="#元组" class="header-anchor">#</a> 元组</h5> <div class="language- extra-class"><pre class="language-text"><code>let x: [string, number];
+x = ['hello', 10];
+</code></pre></div><h5 id="枚举类型"><a href="#枚举类型" class="header-anchor">#</a> 枚举类型</h5> <p>定义一些带名字的常量</p> <div class="language- extra-class"><pre><code>enum PERSION {man=&quot;男人&quot;,woman=&quot;女人&quot;,mid=&quot;中性&quot;};
+console.log(PERSION.mid)
+// 自增长
+enum NUM {top=1,bottom,left,right};
+console.log(NUM.right)
+</code></pre></div><h5 id="函数定义"><a href="#函数定义" class="header-anchor">#</a> 函数定义</h5> <p>注意返回值的类型，注意传入参数的类型。</p> <div class="language- extra-class"><pre class="language-text"><code>function serarchGirle(age: number):string {
+    return 'This is ' + age + '岁女孩！！！'
+}
+
+var age:number = 18;
+
+var result:string = serarchGirle(age);
+
+console.log(result)
+</code></pre></div><ul><li>有可选参数的函数(使用?号)</li></ul> <div class="language- extra-class"><pre class="language-text"><code>function serarchGirle(age: number, stature?: string): string {
+    let str:string = '';
+    str = `这是一个${age}岁的小姐姐`;
+    if (typeof stature !== 'undefined') str += stature;
+    return str;
+}
+
+let age: number = 20;
+let result: string = serarchGirle(age, '大长腿');
+
+console.log(result)
+</code></pre></div><ul><li>有默认参数的函数</li></ul> <div class="language- extra-class"><pre class="language-text"><code>function serarchGirle(age: number=20, stature?: string): string {}
+</code></pre></div><ul><li>有剩余参数的函数</li></ul> <div class="language- extra-class"><pre class="language-text"><code>function searchXiaoJieJie3(...xuqiu:string[]):string{}
+</code></pre></div><h5 id="函数的三种定义方式"><a href="#函数的三种定义方式" class="header-anchor">#</a> 函数的三种定义方式</h5> <ul><li>函数声明法</li></ul> <div class="language- extra-class"><pre class="language-text"><code>function add(num1: number, num2: number): number {
+    return num1 + num2;
+}
+</code></pre></div><ul><li>函数表达式法</li></ul> <div class="language- extra-class"><pre class="language-text"><code>let add2 = function (num1: number, num2: number): number {
+    return num1 + num2
+}
+</code></pre></div><ul><li>箭头函数法</li></ul> <div class="language- extra-class"><pre class="language-text"><code>let add3 = (num2: number, num1: number): number =&gt; {
+    return num1 + num2;
+}
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b8c9f267.js" defer></script><script src="/assets/js/2.5effd679.js" defer></script><script src="/assets/js/27.a658b46b.js" defer></script>
+  </body>
+</html>

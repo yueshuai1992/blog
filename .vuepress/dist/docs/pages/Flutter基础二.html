@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Flutter 基础（二）</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.0bb10e40.css" as="style"><link rel="preload" href="/assets/js/app.b8c9f267.js" as="script"><link rel="preload" href="/assets/js/2.5effd679.js" as="script"><link rel="preload" href="/assets/js/15.254f14ec.js" as="script"><link rel="prefetch" href="/assets/js/10.1e9d6dd9.js"><link rel="prefetch" href="/assets/js/11.36899433.js"><link rel="prefetch" href="/assets/js/12.7b375376.js"><link rel="prefetch" href="/assets/js/13.ca272700.js"><link rel="prefetch" href="/assets/js/14.62f85eb1.js"><link rel="prefetch" href="/assets/js/16.cd77e345.js"><link rel="prefetch" href="/assets/js/17.37843c59.js"><link rel="prefetch" href="/assets/js/18.ff049040.js"><link rel="prefetch" href="/assets/js/19.8b84c72e.js"><link rel="prefetch" href="/assets/js/20.c4e0cf47.js"><link rel="prefetch" href="/assets/js/21.5ca97ceb.js"><link rel="prefetch" href="/assets/js/22.1c3d3481.js"><link rel="prefetch" href="/assets/js/23.fe8a6329.js"><link rel="prefetch" href="/assets/js/24.6e50e452.js"><link rel="prefetch" href="/assets/js/25.4e3061bc.js"><link rel="prefetch" href="/assets/js/26.99d8657b.js"><link rel="prefetch" href="/assets/js/27.a658b46b.js"><link rel="prefetch" href="/assets/js/28.3a81a88b.js"><link rel="prefetch" href="/assets/js/29.7731a3d8.js"><link rel="prefetch" href="/assets/js/3.b60c999d.js"><link rel="prefetch" href="/assets/js/30.5e4771dc.js"><link rel="prefetch" href="/assets/js/31.8b7a30d8.js"><link rel="prefetch" href="/assets/js/32.01da18cd.js"><link rel="prefetch" href="/assets/js/33.db213850.js"><link rel="prefetch" href="/assets/js/34.80b14b0d.js"><link rel="prefetch" href="/assets/js/35.832af720.js"><link rel="prefetch" href="/assets/js/36.af7bb98e.js"><link rel="prefetch" href="/assets/js/37.d454caa4.js"><link rel="prefetch" href="/assets/js/38.480b5662.js"><link rel="prefetch" href="/assets/js/4.cd2082ce.js"><link rel="prefetch" href="/assets/js/5.90db7dea.js"><link rel="prefetch" href="/assets/js/6.0e3d16be.js"><link rel="prefetch" href="/assets/js/7.31ff4035.js"><link rel="prefetch" href="/assets/js/8.ef9b5fc6.js"><link rel="prefetch" href="/assets/js/9.be78d7b3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0bb10e40.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="flutter-基础（二）"><a href="#flutter-基础（二）" class="header-anchor">#</a> Flutter 基础（二）</h3> <h4 id="_1-row"><a href="#_1-row" class="header-anchor">#</a> 1.Row</h4> <p>不灵水平布局</p> <div class="language- extra-class"><pre class="language-text"><code>body: new Row(
+  children: &lt;Widget&gt;[
+    new RaisedButton(
+      onPressed: (){},
+      color: Colors.blueAccent,
+      child: new Text('蓝色按钮'),
+    ),
+    new RaisedButton(
+      onPressed: (){},
+      color: Colors.redAccent,
+      child: new Text('红色按钮'),
+    ),
+    new RaisedButton(
+      onPressed: (){
+        print('2424242');
+      },
+      color: Colors.greenAccent,
+      child: new Text('绿色按钮'),
+    )
+  ],
+),
+</code></pre></div><p>灵活水平布局</p> <div class="language- extra-class"><pre class="language-text"><code>Expanded (
+  child: new RaisedButton(
+    onPressed: (){},
+    color: Colors.redAccent,
+    child: new Text('红色按钮'),
+  )
+),
+</code></pre></div><h4 id="_2-column"><a href="#_2-column" class="header-anchor">#</a> 2.Column</h4> <ul><li>main轴：如果你用column组件，那垂直就是主轴，如果你用Row组件，那水平就是主轴。</li> <li>cross轴：cross轴我们称为幅轴，是和主轴垂直的方向。比如Row组件，那垂直就是幅轴，Column组件的幅轴就是水平方向的。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>body: Container(
+  child: new Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: &lt;Widget&gt;[
+      new Text('这是第一行字！这是第一行字！这是第一行字！'),
+      new Text('这是第二行字！'),
+      new Text('这是第三行字！这是第三行字！这是第三行字！这是第三行字！')
+    ],
+  )
+),
+</code></pre></div><ul><li>CrossAxisAlignment.star：居左对齐。</li> <li>CrossAxisAlignment.end：居右对齐。</li> <li>CrossAxisAlignment.center：居中对齐。</li></ul> <h4 id="_3-stack层叠布局"><a href="#_3-stack层叠布局" class="header-anchor">#</a> 3.Stack层叠布局</h4> <p>层叠布局的 alignment 属性</p> <ul><li>alignment属性是控制层叠的位置的，建议在两个内容进行层叠时使用。它有两个值X轴距离和Y轴距离，值是从0到1的，都是从上层容器的左上角开始算起的</li> <li>CircleAvatar组件的使用</li> <li>CircleAvatar这个经常用来作头像的，组件里边有个radius的值可以设置图片的弧度。
+现在我们准备放入一个图像，然后把弧度设置成100，形成一个漂亮的圆形，代码如下：</li></ul> <div class="language- extra-class"><pre class="language-text"><code>new CircleAvatar(
+  backgroundImage: new NetworkImage('http://jspang.com/static//myimg/blogtouxiang.jpg'),
+  radius: 100.0,
+),
+
+var stack = new Stack(
+  alignment: const FractionalOffset(0.5, 0.8),
+  children: &lt;Widget&gt;[
+    new CircleAvatar(
+      backgroundImage: new NetworkImage('https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1551696714&amp;di=3592e7cc2af8337ba2c1c7427090491f&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fdata.whicdn.com%2Fimages%2F48087360%2Flarge.png'),
+      radius: 100.0,
+    ),
+    new Container(
+      decoration: new BoxDecoration(
+        color: Color.fromARGB(100, 255, 200, 100)
+      ),
+      child: new Text(
+        '好漂亮哦！', 
+        textAlign: TextAlign.center,
+      ),
+      padding: new EdgeInsets.all(10.0)
+    )
+  ],
+);
+</code></pre></div><h4 id="_4-positioned组件的属性"><a href="#_4-positioned组件的属性" class="header-anchor">#</a> 4.Positioned组件的属性</h4> <ul><li>bottom: 距离层叠组件下边的距离</li> <li>left：距离层叠组件左边的距离</li> <li>top：距离层叠组件上边的距离</li> <li>right：距离层叠组件右边的距离</li> <li>width: 层叠定位组件的宽度</li> <li>height: 层叠定位组件的高度</li></ul> <h4 id="_5-卡片组件布局"><a href="#_5-卡片组件布局" class="header-anchor">#</a> 5.卡片组件布局</h4> <div class="language- extra-class"><pre class="language-text"><code>var card = new Card(
+  child: new Column(
+    children: &lt;Widget&gt;[
+      ListTile(
+        title: Text(
+          '北京大学', 
+          style: TextStyle(
+            fontWeight: FontWeight.w500
+          ),
+        ),
+        subtitle: Text('北京市海淀区'),
+        leading: new Icon(
+          Icons.account_balance,
+          color: Colors.blueAccent
+        ),
+      ),
+    ],
+  )
+);
+</code></pre></div><h4 id="_6-导航和返回"><a href="#_6-导航和返回" class="header-anchor">#</a> 6.导航和返回</h4> <div class="language- extra-class"><pre class="language-text"><code>import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      title: &quot;导航&quot;,
+      home: new FirstScreen(),
+    )
+  );
+}
+
+class FirstScreen extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: new Text('主页'),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: (){
+            Navigator.push(context, new MaterialPageRoute(
+              builder: (context)=&gt;new SecondScreen()
+            ));
+          },
+          child: Text('详情页'),
+        ),
+      ),
+    );
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: new Text('详情页')),
+      body: Center(
+        child: RaisedButton(
+          onPressed: (){
+            Navigator.pop(context);
+          },
+          child: new Text('返回'),
+        ),
+      ),
+    );
+  }
+}
+</code></pre></div><p>RaisedButton按钮组件
+它有两个最基本的属性：</p> <ul><li>child：可以放入容器，图标，文字。让你构建多彩的按钮。</li> <li>onPressed：点击事件的相应，一般会调用Navigator组件。</li></ul> <p>我们在作页面导航时，大量的使用了RaisedButton组件，这个组件的使用在实际工作中用的也比较多。</p> <p>Navigator.push 和 Navigator.pop</p> <ul><li>Navigator.push：是跳转到下一个页面，它要接受两个参数一个是上下文context，另一个是要跳转的函数。</li> <li>Navigator.pop：是返回到上一个页面，使用时传递一个context（上下文）参数，使用时要注意的是，你必须是有上级页面的，也就是说上级页面使用了Navigator.push。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>import 'package:flutter/material.dart';
+class Product {
+  final String title;
+  final String description;
+  Product(this.title, this.description);
+}
+void main() {
+  runApp(
+    MaterialApp(
+      title: '商品列表',
+      home: Home(
+        products: List.generate(
+          100, 
+          (i)=&gt; Product('商品$i','这是一个商品详情，编号为:$i')
+        )
+      )
+    )
+  );
+}
+class Home extends StatelessWidget {
+  final  List&lt;Product&gt; products;
+  Home({Key key, this.products}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: new Text('列表'),
+      ),
+      body: ListView.builder(
+        itemCount: products.length,
+        itemBuilder: (context, index){
+          return ListTile(title: Text(products[index].title+'  '+products[index].description),);
+        },
+      ),
+    );
+  }
+}
+</code></pre></div><h4 id="_7-导航参数的传递和接收"><a href="#_7-导航参数的传递和接收" class="header-anchor">#</a> 7. 导航参数的传递和接收</h4> <p>导航参数的传递</p> <div class="language- extra-class"><pre class="language-text"><code>Navigator.push(
+  context, 
+  MaterialPageRoute(
+    builder:(context)=&gt;new ProductDetail(product:products[index])
+  )
+);
+</code></pre></div><p>子页面接受参数并显示</p> <div class="language- extra-class"><pre class="language-text"><code>class ProductDetail extends StatelessWidget {
+  final Product product;
+  ProductDetail({Key key ,@required this.product}):super(key:key);
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: AppBar(
+        title:Text('${product.title}'),
+      ),
+      body:Center(child: Text('${product.description}'),)
+    );
+  }
+}
+
+
+import 'package:flutter/material.dart';
+class Product {
+  final String title;
+  final String description;
+  Product(this.title, this.description);
+}
+void main() {
+  runApp(
+    MaterialApp(
+      title: '商品列表',
+      home: Home(
+        products: List.generate(
+          100, 
+          (i)=&gt; Product('商品$i','这是一个商品详情，编号为:$i')
+        )
+      )
+    )
+  );
+}
+class Home extends StatelessWidget {
+  final  List&lt;Product&gt; products;
+  Home({Key key, this.products}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: new Text('列表'),
+      ),
+      body: ListView.builder(
+        itemCount: products.length,
+        itemBuilder: (context, index){
+          return ListTile(
+            title: Text(products[index].title+'  '+products[index].description),
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return new ProductDetail(product:products[index]);
+                }
+              ));
+            },
+          );
+        },
+      ),
+    );
+  }
+}
+class ProductDetail extends StatelessWidget {
+  final Product product;
+  ProductDetail({Key key, this.product}):super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title:Text('${product.title}'),
+      ),
+      body: Center(
+        child: Text('${product.description}'),
+      ),
+    );
+  }
+}
+</code></pre></div><h4 id="_8-异步请求和等待"><a href="#_8-异步请求和等待" class="header-anchor">#</a> 8. 异步请求和等待</h4> <p>直接使用async...await就可以实现</p> <div class="language- extra-class"><pre class="language-text"><code>_navigateToXiaoJieJie(BuildContext context) async{ //async是启用异步方法
+    final result = await Navigator.push(//等待
+      context, 
+      MaterialPageRoute(builder: (context)=&gt; XiaoJieJie())
+      );
+      Scaffold.of(context).showSnackBar(SnackBar(content:Text('$result')));
+  }
+}
+</code></pre></div><p>SnackBar的使用</p> <div class="language- extra-class"><pre class="language-text"><code>Scaffold.of(context).showSnackBar(SnackBar(content:Text('$result')));
+</code></pre></div><p>返回数据的方式
+Navigator.pop(context,'xxxx');  //xxx就是返回的参数</p> <div class="language- extra-class"><pre class="language-text"><code>import 'package:flutter/material.dart';
+
+void main(List&lt;String&gt; args) {
+  runApp(
+    MaterialApp(
+      title: &quot;数据传递&quot;,
+      home: FirstPage()
+    )
+  );
+}
+
+class FirstPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('数据传递'),
+      ),
+      body: Center(
+        child: RouterButton(),
+      ),
+    );
+  }
+}
+
+class RouterButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      child: Text('GO 数据传送'),
+      onPressed: (){
+        _navagatorTo(context);
+      },
+    );
+  }
+
+  _navagatorTo(BuildContext context) async{
+    final result = await Navigator.push(
+      context, 
+      MaterialPageRoute(
+        builder: (context)=&gt; secondPage()
+      )
+    );
+    Scaffold.of(context).showSnackBar(
+      SnackBar(content:Text('$result'))
+    );
+  }
+}
+
+class secondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('第二个页面'),
+      ),
+      body: Center(
+        child: Column(
+          children: &lt;Widget&gt;[
+            RaisedButton(
+              child: Text('传送一个123'),
+              onPressed: (){
+                Navigator.pop(context, '123456');
+              },
+            ),
+            RaisedButton(
+              child: Text('传送一个456'),
+              onPressed: (){
+                Navigator.pop(context, '456789');
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+</code></pre></div><ol start="9"><li>静态资源和项目图片的处理
+pubspec.yaml 文件
+assets:
+<ul><li>images/blogtouxiang.jpg</li></ul></li></ol> <p>在项目根目录下新建了一个images文件夹
+使用项目图片资源
+import 'package:flutter/material.dart';
+void main()=&gt;runApp(MyApp());
+class MyApp extends StatelessWidget {
+@override
+Widget build(BuildContext context) {
+return Container(
+child: Image.asset('images/blogtouxiang.jpg'),
+);
+}
+}</p> <h4 id="_10-配置app的图标"><a href="#_10-配置app的图标" class="header-anchor">#</a> 10. 配置APP的图标</h4> <p>项目根目录/android/app/src/main/res/</p> <ul><li>mdpi (中) ~160dpi</li> <li>hdpi （高） ~240dip</li> <li>xhdpi （超高） ~320dip</li> <li>xxhdpi （超超高） ~480dip</li> <li>xxxhdpi （超超超高） ~640dip</li></ul> <p>AndroidManifest.xml 文件
+项目根目录/android/app/src/main/AndroidManifest.xml</p> <p>android:label=&quot;flutter_app&quot;   //配置APP的名称，支持中文
+android:icon=&quot;@mipmap/ic_launcher&quot; //APP图标的文件名称</p> <h4 id="_11-生成-keystore"><a href="#_11-生成-keystore" class="header-anchor">#</a> 11.生成 keystore</h4> <p>keytool -genkey -v -keystore ~/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key</p> <p>有了这个key.jks文件后，可以到项目目录下的android文件夹下，创建一个名为key.properties的文件，并打开粘贴下面的代码。</p> <div class="language- extra-class"><pre class="language-text"><code>storePassword=&lt;password from previous step&gt;    //输入上一步创建KEY时输入的 密钥库 密码
+keyPassword=&lt;password from previous step&gt;    //输入上一步创建KEY时输入的 密钥 密码
+keyAlias=key
+storeFile=&lt;E:/key.jks&gt;    //key.jks的存放路径
+</code></pre></div><p>我的文件最后是这样的：</p> <div class="language- extra-class"><pre class="language-text"><code>storePassword=123123
+keyPassword=123123
+keyAlias=key
+storeFile=/Users/mac/flutterKey.jks
+</code></pre></div><h4 id="_12-配置key注册"><a href="#_12-配置key注册" class="header-anchor">#</a> 12.配置key注册</h4> <p>key生成好后，需要在build.gradle文件中进行配置。这个过程其实很简单，就是粘贴复制一些东西，你是不需要知道这些文件的具体用处的。
+第一项：
+进入项目目录的/android/app/build.gradle文件，在android{这一行前面,加入如下代码：</p> <div class="language- extra-class"><pre class="language-text"><code>def keystorePropertiesFile = rootProject.file(&quot;key.properties&quot;)
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+把如下代码进行替换
+buildTypes {
+    release {
+        signingConfig signingConfigs.debug
+    }
+}
+
+替换成的代码：
+signingConfigs {
+    release {
+        keyAlias keystoreProperties['keyAlias']
+        keyPassword keystoreProperties['keyPassword']
+        storeFile file(keystoreProperties['storeFile'])
+        storePassword keystoreProperties['storePassword']
+    }
+}
+buildTypes {
+    release {
+        signingConfig signingConfigs.release
+    }
+}
+</code></pre></div><h4 id="_13-生成apk"><a href="#_13-生成apk" class="header-anchor">#</a> 13. 生成apk</h4> <p>直接在终端中输入：</p> <div class="language- extra-class"><pre class="language-text"><code>flutter build apk
+</code></pre></div><p>注意：密码输入的不能用空格查看signing-config.json这个文件</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b8c9f267.js" defer></script><script src="/assets/js/2.5effd679.js" defer></script><script src="/assets/js/15.254f14ec.js" defer></script>
+  </body>
+</html>

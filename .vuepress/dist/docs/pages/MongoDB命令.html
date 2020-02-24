@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MongoDB 命令</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.0bb10e40.css" as="style"><link rel="preload" href="/assets/js/app.b8c9f267.js" as="script"><link rel="preload" href="/assets/js/2.5effd679.js" as="script"><link rel="preload" href="/assets/js/24.6e50e452.js" as="script"><link rel="prefetch" href="/assets/js/10.1e9d6dd9.js"><link rel="prefetch" href="/assets/js/11.36899433.js"><link rel="prefetch" href="/assets/js/12.7b375376.js"><link rel="prefetch" href="/assets/js/13.ca272700.js"><link rel="prefetch" href="/assets/js/14.62f85eb1.js"><link rel="prefetch" href="/assets/js/15.254f14ec.js"><link rel="prefetch" href="/assets/js/16.cd77e345.js"><link rel="prefetch" href="/assets/js/17.37843c59.js"><link rel="prefetch" href="/assets/js/18.ff049040.js"><link rel="prefetch" href="/assets/js/19.8b84c72e.js"><link rel="prefetch" href="/assets/js/20.c4e0cf47.js"><link rel="prefetch" href="/assets/js/21.5ca97ceb.js"><link rel="prefetch" href="/assets/js/22.1c3d3481.js"><link rel="prefetch" href="/assets/js/23.fe8a6329.js"><link rel="prefetch" href="/assets/js/25.4e3061bc.js"><link rel="prefetch" href="/assets/js/26.99d8657b.js"><link rel="prefetch" href="/assets/js/27.a658b46b.js"><link rel="prefetch" href="/assets/js/28.3a81a88b.js"><link rel="prefetch" href="/assets/js/29.7731a3d8.js"><link rel="prefetch" href="/assets/js/3.b60c999d.js"><link rel="prefetch" href="/assets/js/30.5e4771dc.js"><link rel="prefetch" href="/assets/js/31.8b7a30d8.js"><link rel="prefetch" href="/assets/js/32.01da18cd.js"><link rel="prefetch" href="/assets/js/33.db213850.js"><link rel="prefetch" href="/assets/js/34.80b14b0d.js"><link rel="prefetch" href="/assets/js/35.832af720.js"><link rel="prefetch" href="/assets/js/36.af7bb98e.js"><link rel="prefetch" href="/assets/js/37.d454caa4.js"><link rel="prefetch" href="/assets/js/38.480b5662.js"><link rel="prefetch" href="/assets/js/4.cd2082ce.js"><link rel="prefetch" href="/assets/js/5.90db7dea.js"><link rel="prefetch" href="/assets/js/6.0e3d16be.js"><link rel="prefetch" href="/assets/js/7.31ff4035.js"><link rel="prefetch" href="/assets/js/8.ef9b5fc6.js"><link rel="prefetch" href="/assets/js/9.be78d7b3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0bb10e40.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="mongodb-命令"><a href="#mongodb-命令" class="header-anchor">#</a> MongoDB 命令</h3> <h4 id="数据库基础操作命令"><a href="#数据库基础操作命令" class="header-anchor">#</a> 数据库基础操作命令</h4> <ul><li>命令行输入mongo进入MongoDB命令交互模式进入</li></ul> <div class="language- extra-class"><pre class="language-text"><code>mongo
+</code></pre></div><ul><li>列出已有db</li></ul> <div class="language- extra-class"><pre class="language-text"><code>show dbs
+</code></pre></div><ul><li>如果my_db存在，则切换到my_db，如果不存在，则创建之</li></ul> <div class="language- extra-class"><pre class="language-text"><code>use my_db
+</code></pre></div><ul><li>显示当前db</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db
+</code></pre></div><ul><li>创建集合my_col</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.createCollection(&quot;my_col&quot;);
+</code></pre></div><ul><li>列出改db下面所有的集合</li></ul> <div class="language- extra-class"><pre class="language-text"><code>show collections
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>show tables
+</code></pre></div><ul><li>删除集合my_col</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.my_col.drop()
+</code></pre></div><ul><li>删除当前数据库</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.dropDatabase();
+</code></pre></div><h3 id="数据库curd操作命令"><a href="#数据库curd操作命令" class="header-anchor">#</a> 数据库CURD操作命令</h3> <ul><li><p>插入数据</p> <ul><li>插入一条数据</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.collections.insert({name: 'lisi'});
+db.collections.insertOne({name: '王梅梅2'});
+</code></pre></div><ul><li>插入多条数据</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.collections.insert([{name: '李白'}, {name: '杜甫'}])
+db.collections.insertMany([{name: '李白1'}, {name: '杜甫1'}]);
+</code></pre></div><ul><li>保存数据也可以理解为插入</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.collections.save([{name: '李白1'}, {name: '杜甫1'}]);
+</code></pre></div></li> <li><p>更新数据</p> <ul><li>更新一条数据</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.collections.update({name: '李白1'}, {$set:{name: '岳帅'}});
+</code></pre></div><ul><li>更新多条数据</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.collections.update({age: 35}, {$set:{age: 36}}, {multi: true});
+</code></pre></div><ul><li>使用保存数据全部替换</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.collections.save({&quot;_id&quot; : ObjectId(&quot;5d0751ef41623d5db6cd4d44&quot;), name: '李白'})
+</code></pre></div></li> <li><p>删除数据</p> <ul><li>删除一条数据</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.collections.deleteOne({name: '张三'});
+db.collections.remove({age: 36}, true);
+</code></pre></div><ul><li>删除多条数据</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.collections.deleteMany({age: 36});
+db.collections.remove({age: '20'});
+</code></pre></div></li> <li><p>查询</p> <div class="language- extra-class"><pre class="language-text"><code>db.collections.find();
+</code></pre></div><ul><li>查询等于</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.users.find({age: : 500});
+</code></pre></div><ul><li>查询大于</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.users.find({age: {$gt: 500}});
+</code></pre></div><ul><li>查询大于等于</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.users.find({age: {$gte: 500}});
+</code></pre></div><ul><li>查询小于等于</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.users.find({age: {$lte: 500}});
+</code></pre></div><ul><li>查询小于</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.users.find({age: {$lt: 500}});
+</code></pre></div><ul><li>查询小于大的，大于小的（如大于10小于20）</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.users.find({age: {$gt: 20, $lt: 30}});
+</code></pre></div><ul><li>查询条数</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.users.find().limit(10);
+</code></pre></div><ul><li>跳过指定数量</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.user.find().skip(10).limit(10);
+</code></pre></div></li> <li><p>删除文档中的一个属性</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.update({name: '张三'}, {$unset:{age: 1}})
+</code></pre></div><ul><li>内嵌文档
+<ul><li>插入</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.user.update(
+    {name: '李四'}, 
+    {
+        $set: {
+            hobby: {
+                cities: ['北京', '南京'],
+                movies: ['哪吒']
+            }
+        }
+    }
+)
+</code></pre></div><ul><li>查询</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.user.find({&quot;hobby.movies&quot;: '哪吒'});
+</code></pre></div><ul><li>向内嵌文档的数组中添加</li></ul> <div class="language- extra-class"><pre class="language-text"><code>*会重复添加*
+db.user.update(
+    {name: '张三'}, 
+    {
+        $push: {
+            'hobby.movies': '哪吒'
+        }
+    }
+)
+*不会重复添加*
+db.user.update(
+    {name: '张三'}, 
+    {
+        $addToSet: {
+            'hobby.movies': '哪吒'
+        }
+    }
+)
+</code></pre></div><ul><li>删除</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.user.remove({'hobby.cities': '北京'})
+</code></pre></div></li> <li>获取文档的属性值</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.users.findOne({name: '杜甫'})._id;
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>db.users.find({name: '杜甫'})[0]._id;
+</code></pre></div><ul><li>获取 或 数据</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.emp.find({$or: [
+    {&quot;sal&quot;: {$lte: 1000}},
+    {&quot;sal&quot;: {$gte: 2500}}
+]});
+</code></pre></div><ul><li><p>改变整个数据类型</p> <div class="language- extra-class"><pre class="language-text"><code>db.emp.find({mgr: {$type: 2}}).forEach(
+    function(doc) {
+        db.emp.update({'_id':doc._id}, {$set:{'mgr': parseInt(doc.mgr)}});
+    }
+);
+</code></pre></div><ul><li>1 Double 浮点型</li> <li>2 String UTF-8字符串都可表示为字符串类型的数据</li> <li>3 Object 对象，嵌套另外的文档</li> <li>4 Array 值的集合或者列表可以表示成数组</li> <li>5 Binary data 二进制</li> <li>7 Object id 对象id是文档的12字节的唯一 ID 系统默认会自动生成</li> <li>8 Boolean 布尔类型有两个值TRUE和FALSE</li> <li>9 Date 日期类型存储的是从标准纪元开始的毫秒数。不存储时区</li> <li>10 Null 用于表示空值或者不存在的字段</li> <li>11 Regular expression 采用js 的正则表达式语法</li> <li>13 JavaScript code 可以存放Javasript 代码</li> <li>14 Symbol 符号</li> <li>15 JavaScript code with scope</li> <li>16 32-bit integer 32位整数类型</li> <li>17 Timestamp 特殊语义的时间戳数据类型</li> <li>18 64-bit integer 64位整数类型</li></ul></li> <li><p>$inc 进行增减的操作</p> <div class="language- extra-class"><pre class="language-text"><code>db.emp.updateMany({sal: {$lt: 1000}}, {$inc: {sal: 400}});
+</code></pre></div></li> <li><p>sort 可以以任意的顺序排序</p> <ul><li>倒序</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.emp.find().sort({sal: -1});
+</code></pre></div><ul><li>正序</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.emp.find().sort({sal: 1});
+</code></pre></div><ul><li>多条件排序</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.emp.find().sort({sal: 1, empo: -1});
+</code></pre></div></li> <li><p>映射
+显示为1，不显示为0</p> <div class="language- extra-class"><pre class="language-text"><code>db.emp.find({}, {ename: 1, _id: 0});
+</code></pre></div></li> <li><p>导出集合</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>mongoexport -d change_log&lt;数据库名&gt; -c projects&lt;集合名&gt; -o d:/projects.json&lt;路径&gt; --type json
+
+mongoexport -d change_log -c projects -o d:/projects.json --type json
+</code></pre></div><ul><li>导入文件</li></ul> <div class="language- extra-class"><pre class="language-text"><code>mongoimport -d dbname -c colname --file path(路径)/文件名.json --type json
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b8c9f267.js" defer></script><script src="/assets/js/2.5effd679.js" defer></script><script src="/assets/js/24.6e50e452.js" defer></script>
+  </body>
+</html>

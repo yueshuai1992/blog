@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Moogoose 模块</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.0bb10e40.css" as="style"><link rel="preload" href="/assets/js/app.b8c9f267.js" as="script"><link rel="preload" href="/assets/js/2.5effd679.js" as="script"><link rel="preload" href="/assets/js/26.99d8657b.js" as="script"><link rel="prefetch" href="/assets/js/10.1e9d6dd9.js"><link rel="prefetch" href="/assets/js/11.36899433.js"><link rel="prefetch" href="/assets/js/12.7b375376.js"><link rel="prefetch" href="/assets/js/13.ca272700.js"><link rel="prefetch" href="/assets/js/14.62f85eb1.js"><link rel="prefetch" href="/assets/js/15.254f14ec.js"><link rel="prefetch" href="/assets/js/16.cd77e345.js"><link rel="prefetch" href="/assets/js/17.37843c59.js"><link rel="prefetch" href="/assets/js/18.ff049040.js"><link rel="prefetch" href="/assets/js/19.8b84c72e.js"><link rel="prefetch" href="/assets/js/20.c4e0cf47.js"><link rel="prefetch" href="/assets/js/21.5ca97ceb.js"><link rel="prefetch" href="/assets/js/22.1c3d3481.js"><link rel="prefetch" href="/assets/js/23.fe8a6329.js"><link rel="prefetch" href="/assets/js/24.6e50e452.js"><link rel="prefetch" href="/assets/js/25.4e3061bc.js"><link rel="prefetch" href="/assets/js/27.a658b46b.js"><link rel="prefetch" href="/assets/js/28.3a81a88b.js"><link rel="prefetch" href="/assets/js/29.7731a3d8.js"><link rel="prefetch" href="/assets/js/3.b60c999d.js"><link rel="prefetch" href="/assets/js/30.5e4771dc.js"><link rel="prefetch" href="/assets/js/31.8b7a30d8.js"><link rel="prefetch" href="/assets/js/32.01da18cd.js"><link rel="prefetch" href="/assets/js/33.db213850.js"><link rel="prefetch" href="/assets/js/34.80b14b0d.js"><link rel="prefetch" href="/assets/js/35.832af720.js"><link rel="prefetch" href="/assets/js/36.af7bb98e.js"><link rel="prefetch" href="/assets/js/37.d454caa4.js"><link rel="prefetch" href="/assets/js/38.480b5662.js"><link rel="prefetch" href="/assets/js/4.cd2082ce.js"><link rel="prefetch" href="/assets/js/5.90db7dea.js"><link rel="prefetch" href="/assets/js/6.0e3d16be.js"><link rel="prefetch" href="/assets/js/7.31ff4035.js"><link rel="prefetch" href="/assets/js/8.ef9b5fc6.js"><link rel="prefetch" href="/assets/js/9.be78d7b3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0bb10e40.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="moogoose-模块"><a href="#moogoose-模块" class="header-anchor">#</a> Moogoose 模块</h3> <h4 id="moogoose-odm-对象文档模型"><a href="#moogoose-odm-对象文档模型" class="header-anchor">#</a> Moogoose ODM 对象文档模型</h4> <ul><li><p>下载mongoose</p> <div class="language- extra-class"><pre class="language-text"><code>npm i mongoose --save
+</code></pre></div></li> <li><p>引入mongoose</p> <div class="language- extra-class"><pre class="language-text"><code>const mongoose = require('mongoose');
+</code></pre></div></li> <li><p>连接数据库</p> <div class="language- extra-class"><pre class="language-text"><code>mongoose.connect(&quot;mongodb://127.0.0.1/my_test&quot;,{ useNewUrlParser: true })
+</code></pre></div></li> <li><p>数据库断开</p> <div class="language- extra-class"><pre class="language-text"><code>mongoose.disconnect();
+</code></pre></div></li> <li><p>创建模式结构</p> <div class="language- extra-class"><pre class="language-text"><code>var studentsSchema = mongoose.Schema({
+    name: String,
+    age: Number,
+    gender: { // 0 为女 1为男
+        type: Number,
+        default: 0
+    },
+    address: String
+})
+</code></pre></div></li> <li><p>创建model集合(如果集合名字为单数，mongoose会自动添加变成复数)</p> <div class="language- extra-class"><pre class="language-text"><code>var StudentsModel = mongoose.model(&quot;student&quot;, studentsSchema);
+</code></pre></div></li> <li><p>创建数据 插入数据</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;modal&gt;.create(
+    doc[s], 
+    [functions(err[错误], data[插入成功的数据]){}]
+)
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>StudentsModel.create({
+    name: '张三',
+    age: 30,
+    gender: 1,
+    address: '北京'
+}, function(err) {
+    if(!err) {
+        console.log(&quot;数据创建成功！&quot;);
+    }
+})
+</code></pre></div></li> <li><p>查询数据</p> <ul><li><p>find</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;modal&gt;.find(
+    conditions, // 查询条件 没有属性查所有
+    projections, // 投影 需要获取或隐藏的字段 
+        // 1. 对象{a: 1, b:0}; 
+        // 2. 字符串 &quot;a, -b&quot;
+    options, // 查询条件 limit skip sort
+    callback // 回调函数
+)
+查询所有符合条件的文档，总会返回一个数组
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>StudentsModel.find({
+    age: {
+        $lt: 25
+    },
+}, &quot;name -_id&quot;, {
+    skip: 1,
+    limit: 2,
+    sort: {
+        age: 1
+    }
+}, function(err, docs) {
+    if(!err) {
+        console.log(docs)
+    }
+})
+</code></pre></div></li> <li><p>findOne 查询返回的结果是一个文档</p></li> <li><p>findById 通过ID查询，不需要ObjectId</p></li></ul></li> <li><p>修改数据</p> <ul><li><p>update</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;modal&gt;.update(
+    conditions, // 查询条件
+    doc, // 替换的对象
+    options, // 替换的选项 如multi
+    callback // 替换的结果回掉
+)
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>StudentsModel.update({
+    name: '王五'
+}, {
+    $set: {
+        age: 99
+    }
+}, function (err) {
+    if(!err) {
+        console.log(&quot;数据更新成功&quot;);
+    }
+})
+</code></pre></div></li> <li><p>updateOne 只是替换一个</p></li> <li><p>updateMany 替换多个</p></li></ul></li> <li><p>删除数据</p> <ul><li>remove</li> <li>deleteOne</li> <li>deleteMany</li></ul></li> <li><p>统计数量</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;modal&gt;.countDocuments({}, function(err, count){})
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>StudentsModel.countDocuments({}, function(err, data){
+    if(!err) {
+        console.log(data);
+    }
+})
+</code></pre></div></li> <li><p>通过文档调用保存数据</p> <div class="language- extra-class"><pre class="language-text"><code>var StudentsModel = mongoose.model(&quot;student&quot;, studentsSchema);
+var Studetns = new StudentsModel({
+    name: '韩梅梅',
+    gender: 1,
+    age: 29,
+    address: '海口'
+})
+
+Studetns.save(function(err){
+    if(!err) {
+        console.log(&quot;数据插入成功&quot;);
+    }
+})
+</code></pre></div></li> <li><p>直接修改数据直接保存</p> <div class="language- extra-class"><pre class="language-text"><code>StudentsModel.find({name: '王老五'}, function(err, docs) {
+    if(err) return;
+    docs[0].name = &quot;王老六&quot;;
+    docs[0].save();
+})
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>StudentsModel.findOne({name: '王老六'}, function(err, doc) {
+    if(err) return;
+    doc.name = &quot;王老八&quot;;
+    doc.save();
+})
+</code></pre></div></li> <li><p>查询结果转对象 toObject()</p> <div class="language- extra-class"><pre class="language-text"><code>StudentsModel.findOne({name: '张三'}, function(err, doc) {
+    if(err) return;
+    doc = doc.toObject();
+    delete doc.age;
+    console.log(doc)
+})
+</code></pre></div></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b8c9f267.js" defer></script><script src="/assets/js/2.5effd679.js" defer></script><script src="/assets/js/26.99d8657b.js" defer></script>
+  </body>
+</html>

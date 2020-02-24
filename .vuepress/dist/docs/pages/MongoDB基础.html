@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MongoDB 基础</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.0bb10e40.css" as="style"><link rel="preload" href="/assets/js/app.b8c9f267.js" as="script"><link rel="preload" href="/assets/js/2.5effd679.js" as="script"><link rel="preload" href="/assets/js/25.4e3061bc.js" as="script"><link rel="prefetch" href="/assets/js/10.1e9d6dd9.js"><link rel="prefetch" href="/assets/js/11.36899433.js"><link rel="prefetch" href="/assets/js/12.7b375376.js"><link rel="prefetch" href="/assets/js/13.ca272700.js"><link rel="prefetch" href="/assets/js/14.62f85eb1.js"><link rel="prefetch" href="/assets/js/15.254f14ec.js"><link rel="prefetch" href="/assets/js/16.cd77e345.js"><link rel="prefetch" href="/assets/js/17.37843c59.js"><link rel="prefetch" href="/assets/js/18.ff049040.js"><link rel="prefetch" href="/assets/js/19.8b84c72e.js"><link rel="prefetch" href="/assets/js/20.c4e0cf47.js"><link rel="prefetch" href="/assets/js/21.5ca97ceb.js"><link rel="prefetch" href="/assets/js/22.1c3d3481.js"><link rel="prefetch" href="/assets/js/23.fe8a6329.js"><link rel="prefetch" href="/assets/js/24.6e50e452.js"><link rel="prefetch" href="/assets/js/26.99d8657b.js"><link rel="prefetch" href="/assets/js/27.a658b46b.js"><link rel="prefetch" href="/assets/js/28.3a81a88b.js"><link rel="prefetch" href="/assets/js/29.7731a3d8.js"><link rel="prefetch" href="/assets/js/3.b60c999d.js"><link rel="prefetch" href="/assets/js/30.5e4771dc.js"><link rel="prefetch" href="/assets/js/31.8b7a30d8.js"><link rel="prefetch" href="/assets/js/32.01da18cd.js"><link rel="prefetch" href="/assets/js/33.db213850.js"><link rel="prefetch" href="/assets/js/34.80b14b0d.js"><link rel="prefetch" href="/assets/js/35.832af720.js"><link rel="prefetch" href="/assets/js/36.af7bb98e.js"><link rel="prefetch" href="/assets/js/37.d454caa4.js"><link rel="prefetch" href="/assets/js/38.480b5662.js"><link rel="prefetch" href="/assets/js/4.cd2082ce.js"><link rel="prefetch" href="/assets/js/5.90db7dea.js"><link rel="prefetch" href="/assets/js/6.0e3d16be.js"><link rel="prefetch" href="/assets/js/7.31ff4035.js"><link rel="prefetch" href="/assets/js/8.ef9b5fc6.js"><link rel="prefetch" href="/assets/js/9.be78d7b3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0bb10e40.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="mongodb-基础"><a href="#mongodb-基础" class="header-anchor">#</a> MongoDB 基础</h3> <h4 id="_1-mongodb-简介"><a href="#_1-mongodb-简介" class="header-anchor">#</a> 1 MongoDB 简介</h4> <blockquote><p>MongoDB 是一种NoSQL 数据库，存储的数据对象由键值对组成。MongoDB 所有存储在集合中的数据都是 BSON 格式。BSON 是一种类似 JSON 的二进制形式的存储格式，是 Binary JSON 的简称。如下所示：</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;_id&quot; : ObjectId(&quot;5c89f787ca6e4e3ac1ecabkk&quot;),
+    &quot;_plat&quot; : &quot;test_plat0&quot;,
+    &quot;update_time&quot; : ISODate(&quot;2019-06-03T15:00:42.142Z&quot;),
+    &quot;create_time&quot; : ISODate(&quot;2019-03-14T14:41:11.217Z&quot;),
+    &quot;creator&quot; : &quot;test_user&quot;,
+    &quot;admin&quot; : [ 
+        &quot;admin1&quot;, 
+        &quot;admin2&quot;
+    ],$or
+    &quot;ops&quot; : [ 
+        &quot;ops1&quot;
+    ],
+    &quot;labels&quot; : {
+        &quot;department&quot; : &quot;departmentA&quot;,
+        &quot;main_class&quot; : &quot;mainClassA&quot;
+    }
+}
+</code></pre></div><p>下面对照关系型数据库介绍一些 MongoDB 里面的基本概念：</p> <table><thead><tr><th>关系数据库术语</th> <th>MongoDB术语</th> <th>说明</th></tr></thead> <tbody><tr><td>database</td> <td>database</td> <td>数据库</td></tr> <tr><td>table</td> <td>collection</td> <td>数据库表/集合</td></tr> <tr><td>row</td> <td>document</td> <td>记录行/文档</td></tr> <tr><td>column</td> <td>field</td> <td>数据字段/域</td></tr> <tr><td>index</td> <td>index</td> <td>索引</td></tr> <tr><td>primary key</td> <td>primary key</td> <td>主键，Mongodb自动将_id字段设置为主键</td></tr></tbody></table> <p>通过以下对比可以更理解 MongoDB ：</p> <table><thead><tr><th>id</th> <th>姓名</th> <th>年龄</th> <th>性别</th></tr></thead> <tbody><tr><td>1</td> <td>张三</td> <td>23</td> <td>男</td></tr> <tr><td>2</td> <td>李四</td> <td>21</td> <td>男</td></tr></tbody></table> <p>上述关系型数据在 MongoDB 中的数据形式为：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;_id&quot; : ObjectId(&quot;5c89f787ca6e4e3ac1ehhb23&quot;),
+    &quot;姓名&quot; : &quot;张三&quot;,
+    &quot;年龄&quot; : 23,
+    &quot;性别&quot; : &quot;男&quot;
+}
+{
+    &quot;_id&quot; : ObjectId(&quot;5c89f787ca6e4e3ac1ehhb24&quot;),
+    &quot;姓名&quot; : &quot;李四&quot;,
+    &quot;年龄&quot; : 21,
+    &quot;性别&quot; : &quot;男&quot;
+}
+</code></pre></div><h4 id="_2-mongodb-基本操作"><a href="#_2-mongodb-基本操作" class="header-anchor">#</a> 2 MongoDB 基本操作</h4> <blockquote><p>本节主要介绍通过命令行操作 MongoDB，以 MongoDB 安装在 CentOS 上为例进行说明。</p></blockquote> <h5 id="_2-1-db、集合等基本操作"><a href="#_2-1-db、集合等基本操作" class="header-anchor">#</a> 2.1 db、集合等基本操作</h5> <p>DB 的查看、创建、删除，集合的查看、创建、删除等操作方式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>[root] mongo          #命令行输入mongo进入MongoDB命令交互模式
+&gt; show dbs            #列出已有db
+&gt; use my_db           #如果my_db存在，则切换到my_db，如果不存在，则创建之
+&gt; db                  #显示当前db
+&gt; show dbs            #发现列表里面没有my_db，因为此时db里面没有实际数据或者集合哦
+&gt; db.createCollection(&quot;my_col&quot;)  #创建集合my_col
+&gt; db.my_col_new.insert({&quot;name&quot;:&quot;测试一下&quot;})  #往集合my_col_new里面插入一条数据，如果集合不存在，会自动创建
+&gt; show collections    #列出改db下面所有的集合
+&gt; show tables         #功能跟show collections是一样的哦
+&gt; db.my_col.drop()    #删除集合my_col
+&gt; db.dropDatabase()   #删除当前数据库，执行之前用db命令确认一下当前数据库是不是你要删除的这个哦
+</code></pre></div><h5 id="_2-2-数据插入"><a href="#_2-2-数据插入" class="header-anchor">#</a> 2.2 数据插入</h5> <p>插入数据有4种方法：insert、insertOne、insertMany、save，下面通过例子详细介绍。</p> <div class="language- extra-class"><pre class="language-text"><code>&gt; db.my_col.insert({&quot;name&quot;:&quot;xiaoming&quot;})  #insert可以插入一条数据
+&gt; db.my_col.insert([{&quot;name&quot;:&quot;xiaoming&quot;},{&quot;name&quot;:&quot;test_user&quot;}])  #insert也可以插入多条数据
+&gt; db.my_col.insertOne({&quot;name&quot;:&quot;xiaoming&quot;})  #insertOne只能插入一条数据
+&gt; db.my_col.insertMany([{&quot;name&quot;:&quot;xiaoming&quot;}])  #insertMany可以插入一条或多条数据，但是必须以列表(list)的形式组织数据
+&gt; db.my_col.save([{&quot;name&quot;:&quot;xiaoming&quot;},{&quot;name&quot;:&quot;test_user&quot;}])  #如果不指定_id，save的功能与insert一样
+&gt; db.my_col.save({&quot;_id&quot;:ObjectId(&quot;5d07461141623d5db6cd4d43&quot;),&quot;name&quot;:&quot;xiaoming&quot;})   #如果指定_id，mongodb就不为该条记录自动生成_id了，只有save可以指定_id，insert、insertOne、insertMany都不可以
+</code></pre></div><h5 id="_2-3-数据修改"><a href="#_2-3-数据修改" class="header-anchor">#</a> 2.3 数据修改</h5> <p>修改数据有2种方法：update、save，下面详细介绍。</p> <ul><li>2.3.1 update</li></ul> <blockquote><p>首先，看一下 update 的语法格式，请格外注意一些可选参数的值，这将直接影响你的修改结果：</p></blockquote> <div class="language- extra-class"><pre><code>```
+db.collection.update(
+   &lt;query&gt;,   #update的查询条件，类似sql update语句where后面的部分
+   &lt;update&gt;,  #update的对象和一些更新的操作符等，也可以理解为sql update语句set后面的
+   {
+     upsert: &lt;boolean&gt;,  #可选，这个参数的意思是，如果不存在update的记录，是否插入objNew，true为插入，默认是false，不插入
+     multi: &lt;boolean&gt;,   #可选，mongodb 默认是false，只更新找到的第一条记录，如果这个参数为true，就把按条件查出来多条记录全部更新
+     writeConcern: &lt;document&gt;  #可选，抛出异常的级别
+   }
+)
+```
+假设有这样一张学生成绩表：
+
+```
+&gt; db.my_col.insert([{&quot;name&quot;:&quot;xiaoming&quot;,&quot;class&quot;:&quot;c++&quot;, &quot;score&quot;:60},{&quot;name&quot;:&quot;xiaoming&quot;,&quot;class&quot;:&quot;python&quot;, &quot;score&quot;:95}])
+&gt; db.my_col.find().pretty()
+{
+        &quot;_id&quot; : ObjectId(&quot;5d0751ef41623d5db6cd4d44&quot;),
+        &quot;name&quot; : &quot;xiaoming&quot;,
+        &quot;class&quot; : &quot;c++&quot;,
+        &quot;score&quot; : 60
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;5d0751ef41623d5db6cd4d46&quot;),
+        &quot;name&quot; : &quot;xiaoming&quot;,
+        &quot;class&quot; : &quot;python&quot;,
+        &quot;score&quot; : 95
+}
+```
+xiaoming 同学发现老师把她的 c++ 课程分数录错了，需要修改为75分：
+
+```
+&gt; db.my_col.update({&quot;_id&quot;:ObjectId(&quot;5d0751ef41623d5db6cd4d44&quot;)},{$set:{&quot;score&quot;:75}})
+```
+老师发现把 xiaoming 同学的名字录错了，需要全部修改过来：
+
+```
+&gt; db.my_col.update({&quot;name&quot;:&quot;xiaoming&quot;},{$set:{&quot;name&quot;:&quot;xming&quot;}}) #这样是不对的，只会修改一条记录
+&gt; db.my_col.update({&quot;name&quot;:&quot;xiaoming&quot;},{$set:{&quot;name&quot;:&quot;xming&quot;}},{multi:true})  #这样才对
+```
+将 xming 的 java 课程分数改为95分，如果找不到，就插入一条记录
+```
+&gt; db.my_col.update({&quot;name&quot;:&quot;xming&quot;, &quot;class&quot;: &quot;java&quot;},{$set:{&quot;score&quot;: 95}},true)
+```
+</code></pre></div><ul><li>2.3.2 save</li></ul> <blockquote><p>save 方法通过传入的文档来替换已有文档。语法格式如下：</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>db.collection.save(
+   &lt;document&gt;,   #文档数据
+   {
+     writeConcern: &lt;document&gt; #可选，抛出的异常级别
+   }
+)
+</code></pre></div><p>还以上面那张学生成绩表为例：</p> <div class="language- extra-class"><pre class="language-text"><code>&gt; db.my_col.save({
+         &quot;_id&quot; : ObjectId(&quot;5d0751ef41623d5db6cd4d44&quot;), #指定_id，新的文档会将旧的文档覆盖
+         &quot;name&quot; : &quot;xming&quot;,
+         &quot;class&quot; : &quot;c++&quot;,
+         &quot;score&quot; : 80
+})
+</code></pre></div><h5 id="_2-4-数据删除"><a href="#_2-4-数据删除" class="header-anchor">#</a> 2.4 数据删除</h5> <blockquote><p>数据删除可以使用 deleteOne、deleteMany、remove，下面详细介绍。</p></blockquote> <ul><li>2.4.1 deleteOne 和 deleteMany
+使用方法如下：</li></ul> <div class="language- extra-class"><pre class="language-text"><code>&gt; db.my_col.deleteOne({&quot;name&quot;:&quot;xming&quot;})  #删除xming的一条成绩记录
+&gt; db.my_col.deleteMany({&quot;name&quot;:&quot;xming&quot;}) #删除xming的所有成绩记录
+&gt; db.my_col.deleteMany({})  #删除成绩表里面的所有内容
+</code></pre></div><ul><li>2.4.2 remove
+首先还是来看语法格式：</li></ul> <div class="language- extra-class"><pre class="language-text"><code>db.collection.remove(
+   &lt;query&gt;,    #可选，查询条件
+   {
+     justOne: &lt;boolean&gt;,  #可选，设置为true或者1，表示只删除一个文档，设置为false，表示删除所有匹配的文档，默认为false
+     writeConcern: &lt;document&gt; #可选，抛出异常的级别
+   }
+)
+</code></pre></div><p>删除 xming 的所有成绩记录：</p> <div class="language- extra-class"><pre class="language-text"><code>&gt; db.col.remove({&quot;name&quot;:&quot;xming&quot;})
+&gt; db.repairDatabase()  #remove方法并不会真正释放空间，需要继续执行 db.repairDatabase() 来回收磁盘空间
+&gt; db.runCommand({ repairDatabase: 1 }) #与上一句等效，仍以执行一句即可
+</code></pre></div><p>ps：remove 现在已经过时了现在官方推荐使用 deleteOne 和 deleteMany 方法。</p> <h5 id="_2-5-数据查询"><a href="#_2-5-数据查询" class="header-anchor">#</a> 2.5 数据查询</h5> <blockquote><p>数据查询的方法有 findOne 和 find，二者参数等用法一样，但是 findOne 只返回一条匹配的数据，find 返回全部的匹配数据，下面主要介绍 find 的用法。</p></blockquote> <ul><li>2.5.1 条件操作符
+操作 sql查询写法 mongo查询写法</li></ul> <div class="language- extra-class"><pre class="language-text"><code>等于 select * from my_col where score = 75; db.my_col.find({&quot;score&quot;: 75}).pretty()
+小于 select * from my_col where score &lt; 75; db.my_col.find({&quot;score&quot;: {$lt: 75}}).pretty()
+小于等于 select * from my_col where score &lt;= 75; db.my_col.find({&quot;score&quot;: {$lte: 75}}).pretty()
+大于 select * from my_col where score &gt; 75; db.my_col.find({&quot;score&quot;: {$gt: 75}}).pretty()
+大于等于 select * from my_col where score &gt;= 75; db.my_col.find({&quot;score&quot;: {$gte: 75}}).pretty()
+不等于 select * from my_col where score != 75; db.my_col.find({&quot;score&quot;: {$ne: 75}}).pretty()
+</code></pre></div><p>ps：pretty 能让查询结果以格式化的 json 形式打印出来，便于查看</p> <ul><li>2.5.2 排序、limit 与 skip
+以分数从高到低显示学生的 c++ 课程成绩，只显示第10名到第20名的学生：</li></ul> <blockquote><p>db.my_col.find({&quot;class&quot;: &quot;c++&quot;}).sort({&quot;score&quot;: -1}).skip(9).limit(11).pretty()
+#sort：1为升序，-1为降序，默认升序
+#limit：显示多少条数据
+#skip：跳过多少条数据</p></blockquote> <ul><li>2.5.3 复合条件查询 and、or
+and：find 方法可以传入多个键值对，每个键值对以逗号隔开，即常规 SQL 的 AND 条件
+查询 xiaoming 同学的 c++ 课程成绩：</li></ul> <blockquote><p>db.my_col.find({&quot;name&quot;: &quot;xiaoming&quot;, &quot;class&quot;: &quot;c++&quot;}).pretty()
+查询分数在75到85分之间的成绩记录：
+db.my_col.find({&quot;score&quot;: {$gt: 75, $lt: 85}}).pretty()</p></blockquote> <p>or：MongoDB OR 条件语句使用了关键字 $or，语法格式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>&gt; db.col.find(
+   {
+      $or: [
+         {key1: value1}, {key2:value2}
+      ]
+   }
+).pretty()
+</code></pre></div><p>查询 xiaoming 或 zhangsan 的课程成绩：</p> <blockquote><p>db.my_col.find({$or: [{&quot;name&quot;: &quot;xiaoming&quot;}, {&quot;name&quot;: &quot;zhangsan&quot;}]}).pretty()</p></blockquote> <p>and + or 复合查询：
+查询 xiaoming 的 c++ 或者 python 课程的成绩：</p> <blockquote><p>db.my_col.find({&quot;name&quot;: &quot;xiaoming&quot;, $or: [{&quot;class&quot;: &quot;c++&quot;}, {&quot;class&quot;: &quot;python&quot;}]}).pretty()</p></blockquote> <ul><li>2.5.4 包含in、不包含nin、全部all
+查询 xiaoming、zhangsan 和 lisa 的成绩：</li></ul> <blockquote><p>db.my_col.find({&quot;name&quot;: {$in: [&quot;xiaoming&quot;,&quot;zhangsan&quot;,&quot;lisa&quot;]}}).pretty()</p></blockquote> <p>查询除了 xiaoming、zhangsan 和 lisa 之外，其他人的成绩：</p> <blockquote><p>db.my_col.find({&quot;name&quot;: {$nin: [&quot;xiaoming&quot;,&quot;zhangsan&quot;,&quot;lisa&quot;]}}).pretty()</p></blockquote> <p>in和nin比较好理解，跟sql的用法类似，all类似于in，不同的地方是，in只需要满足列表中的一个值即可，而all需要满足列表中的全部值。比如，有下面这样一张课程表，表示每个学生修的课程：</p> <blockquote><p>db.course.find().pretty()</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>{
+        &quot;_id&quot; : ObjectId(&quot;5d084f1541623d5db6cd4d4c&quot;),
+        &quot;name&quot; : &quot;xiaoming&quot;,
+        &quot;course&quot; : [
+                &quot;c++&quot;,
+                &quot;python&quot;,
+                &quot;java&quot;
+        ]
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;5d084f1c41623d5db6cd4d4d&quot;),
+        &quot;name&quot; : &quot;lisa&quot;,
+        &quot;course&quot; : [
+                &quot;c++&quot;,
+                &quot;python&quot;,
+                &quot;java&quot;
+        ]
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;5d084f4a41623d5db6cd4d4e&quot;),
+        &quot;name&quot; : &quot;tom&quot;,
+        &quot;course&quot; : [
+                &quot;c++&quot;,
+                &quot;python&quot;
+        ]
+}
+</code></pre></div><p>需要找出修了 c++ 和 java课程的学生：</p> <blockquote><p>db.course.find({&quot;course&quot;: {$all: [&quot;c++&quot;, &quot;java&quot;]}}).pretty() # 用 all 操作符，表示需要满足 c++ 和 java 两项</p></blockquote> <ul><li>2.5.5 判断字段是否存在 exists
+比如，有下面一张表，表示学生信息：</li></ul> <blockquote><p>db.stu_info.find().pretty()
+{
+&quot;_id&quot; : ObjectId(&quot;5d08519a41623d5db6cd4d4f&quot;),
+&quot;name&quot; : &quot;xiaoming&quot;,
+&quot;tel&quot; : &quot;138xxxxxxxx&quot;
+}
+{
+&quot;_id&quot; : ObjectId(&quot;5d08531641623d5db6cd4d50&quot;),
+&quot;name&quot; : &quot;lisa&quot;
+}
+{
+&quot;_id&quot; : ObjectId(&quot;5d08542e41623d5db6cd4d51&quot;),
+&quot;name&quot; : &quot;tom&quot;,
+&quot;tel&quot; : null
+}</p></blockquote> <p>需要找出没有 tel 字段的学生：</p> <blockquote><p>db.stu_info.find({&quot;tel&quot;: {$exists: false}}).pretty() #字段不存在就用false，存在就用true</p></blockquote> <ul><li>2.5.6 空值处理 null
+以上面的学生信息表为例，找出 tel 为空值的学生：</li></ul> <blockquote><p>db.stu_info.find({&quot;tel&quot;: null}).pretty()</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>{
+        &quot;_id&quot; : ObjectId(&quot;5d08531641623d5db6cd4d50&quot;),
+        &quot;name&quot; : &quot;lisa&quot;
+}
+{
+        &quot;_id&quot; : ObjectId(&quot;5d08542e41623d5db6cd4d51&quot;),
+        &quot;name&quot; : &quot;tom&quot;,
+        &quot;tel&quot; : null
+}
+</code></pre></div><p>这时候把 tel 字段不存在和 tel 值为 null 的情况都查出来了！如果只想找 tel 值为 null 的情况：</p> <blockquote><p>db.stu_info.find({&quot;tel&quot;: {$in:[null], $exists:true}}).pretty()</p></blockquote> <ul><li>2.5.7 取模运算 mod
+比如，查找学生成绩取模10 等于0 的数据（即100、90、80...等等）：</li></ul> <blockquote><p>db.my_col.find({&quot;score&quot;: {$mod: [10, 0]}}).pretty()</p></blockquote> <ul><li>2.5.8 正则匹配 regex
+查询学生名字以a开头的学生成绩：</li></ul> <blockquote><p>db.my_col.find({&quot;name&quot;: {$regex: /^a.*/}})</p></blockquote> <ul><li>2.5.9 获取查询结果条数 count
+获取学生成绩记录的条数：</li></ul> <blockquote><p>db.my_col.find().count()</p></blockquote> <p>当使用 limit 方法限制返回的记录数时，默认情况下 count 方法仍然返回全部记录条数。如果希望返回限制之后的记录数量，要使用 count(true) 或者 count(非0)：</p> <div class="language- extra-class"><pre class="language-text"><code>&gt; db.my_col.find().count()
+4
+&gt; db.my_col.find().limit(1).count()
+4
+&gt; db.my_col.find().limit(1).count(true)
+1
+</code></pre></div><ul><li>2.5.10 distinct
+查询课程成绩表中所有学生的名单：</li></ul> <blockquote><p>db.my_col.distinct(&quot;name&quot;)</p></blockquote> <h5 id="_2-6-聚合aggregate"><a href="#_2-6-聚合aggregate" class="header-anchor">#</a> 2.6 聚合aggregate</h5> <blockquote><p>在MongoDB中，使用聚合框架可以对集合中的文档进行变换和组合，完成一些复杂的查询操作。聚合框架通过多个构件来创建一个管道(pipeline)，用于对一连串的文档进行处理。这些构件包括但不限于：</p></blockquote> <table><thead><tr><th>操作符</th> <th>意义</th></tr></thead> <tbody><tr><td>$match</td> <td>筛选</td></tr> <tr><td>$project</td> <td>投射，选择想要的字段或对字段进行重命名</td></tr> <tr><td>$group</td> <td>分组</td></tr> <tr><td>$unwind</td> <td>拆分</td></tr> <tr><td>$sort</td> <td>排序</td></tr> <tr><td>$limit</td> <td>限制查询条数</td></tr> <tr><td>$skip</td> <td>跳过一些条数</td></tr></tbody></table> <p>当需要使用多个操作符来完成文档的聚合时，我们可以传入一个数组条件，这也是aggregate的常见用法：</p> <div class="language- extra-class"><pre class="language-text"><code>&gt; db.my_col.aggregate([
+        {$match: {&quot;name&quot;: &quot;xiaoming&quot;}},   #查找 xiaoming 同学的课程成绩
+        {$project: {&quot;_id&quot;:  0}},   #不需要_id字段
+        {$sort: {&quot;score&quot;:  -1, &quot;class&quot;: 1}},  #按分数降序排序；同样分数的，按课程名字升序排序
+        {$skip: 1},    #跳过一条数据
+        {$limit: 1}    #只显示一条数据
+])
+</code></pre></div><blockquote><p>$match用于对文档集合进行筛选，之后就可以在筛选得到的文档子集上做聚合。&quot;$match&quot;可以使用所有常规的查询操作符(&quot;$gt&quot;、&quot;$lt&quot;、&quot;$in&quot;等)。通常，在实际使用中应该尽可能将&quot;$match&quot;放在管道的前面位置。这样做有两个好处：一是可以快速将不需要的文档过滤掉，以减少管道的工作量；二是如果在投射和分组之前执行&quot;$match&quot;，查询可以使用索引。</p></blockquote> <blockquote><p>$project可以从子文档中提取字段，可以重命名字段。例如，查找学生课程成绩，不显示 _id 字段，显示姓名、课程、成绩字段，同时将 name 字段重命名为 student_name：</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>&gt; db.my_col.aggregate([
+        {$project: {&quot;_id&quot;: 0, &quot;student_name&quot;: &quot;$name&quot;, &quot;core&quot;: 1, &quot;class&quot;: 1}}
+])
+</code></pre></div><p>$sort、$skip、$limit 的用法比较好理解，就不多做说明。
+$group 类似于 sql 中的 group by，主要用于数据处理，比如，计算每个学生的总课程成绩：</p> <blockquote><p>db.my_col.aggregate([
+{$group: {_id: &quot;$name&quot;,  total: {$sum: &quot;$score&quot;}}}
+])</p></blockquote> <p>$sum 可以 替换成操作符 $avg、$min、$max，分别表示求平均成绩、最低成绩、最高成绩。
+$unwind 可以将数组中的每一个值拆分为单独的文档，比如有下面一条记录，记录了一篇博客以及下面的评论：</p> <blockquote><p>db.blog.findOne().pretty()
+{
+&quot;_id&quot;:ObjectId(&quot;5359f6f6ec7452081a7873d7&quot;),
+&quot;title&quot;:&quot;这是一篇博客&quot;,
+&quot;auth&quot;:&quot;xiaoming&quot;,
+&quot;comments&quot;:[
+{
+&quot;author&quot;:&quot;lisa&quot;,
+&quot;date&quot;:ISODate(&quot;2019-01-01T17:52:04.148Z&quot;),
+&quot;text&quot;:&quot;Nice post&quot;
+},
+{
+&quot;author&quot;:&quot;tom&quot;,
+&quot;date&quot;:ISODate(&quot;2019-01-01T17:52:04.148Z&quot;),
+&quot;text&quot;:&quot;I agree&quot;
+}
+]
+}</p></blockquote> <p>现在要找到 lisa 的评论，可以先使用 $unwind 将每条评论拆分为一个独立的文档，然后再进行 match 查询：</p> <blockquote><p>db.blog.aggregate({&quot;$unwind&quot;:&quot;$comments&quot;})
+{
+&quot;results&quot;:
+{
+&quot;_id&quot;:ObjectId(&quot;5359f6f6ec7452081a7873d7&quot;),
+&quot;title&quot;:&quot;这是一篇博客&quot;,
+&quot;author&quot;:&quot;xiaoming&quot;,
+&quot;comments&quot;:{
+&quot;author&quot;:&quot;lisa&quot;,
+&quot;date&quot;:ISODate(&quot;2019-01-01T17:52:04.148Z&quot;),
+&quot;text&quot;:&quot;Nice post&quot;
+}
+},
+{
+&quot;_id&quot;:ObjectId(&quot;5359f6f6ec7452081a7873d7&quot;),
+&quot;title&quot;:&quot;这是一篇博客&quot;,
+&quot;author&quot;:&quot;xiaoming&quot;,
+&quot;comments&quot;:{
+&quot;author&quot;:&quot;tom&quot;,
+&quot;date&quot;:ISODate(&quot;2019-01-01T17:52:04.148Z&quot;),
+&quot;text&quot;:&quot;I agree&quot;
+}
+}
+}</p></blockquote> <blockquote><p>db.blog.aggregate([
+{&quot;$unwind&quot;:&quot;$comments&quot;},
+{&quot;$match&quot;:{&quot;comments.author&quot;:&quot;lisa&quot;}}
+])</p></blockquote> <h5 id="_2-7-索引"><a href="#_2-7-索引" class="header-anchor">#</a> 2.7 索引</h5> <blockquote><p>索引通常能够极大的提高查询的效率，如果没有索引，MongoDB在读取数据时必须扫描集合中的每个文件并选取那些符合查询条件的记录。这种扫描全集合的查询效率是非常低的，特别在处理大量的数据时，查询可以要花费几十秒甚至几分钟，这对网站的性能是非常致命的。索引是特殊的数据结构，索引存储在一个易于遍历读取的数据集合中，索引是对数据库表中一列或多列的值进行排序的一种结构。
+创建索引的基本语法如下：</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>db.collection.createIndex(
+    {key1: option1, key2: option2},    #key为要创建索引的字段，option为创建索引的方式：1 为升序，-1 为降序，可以对多个字段创建索引，称为复合索引
+    {
+        background: &lt;boolean&gt;,  #可选，建索引过程会阻塞其它数据库操作，background 设置为 true 可指定以后台方式创建索引，默认值为 false
+        unique: &lt;boolean&gt; #可选，建立的索引是否唯一。指定为true创建唯一索引。默认值为false
+        name: &lt;string&gt; #可选，索引的名称。如果未指定，MongoDB的通过连接索引的字段名和排序顺序生成一个索引名称
+        sparse: &lt;boolean&gt; #可选，对文档中不存在的字段数据不启用索引；这个参数需要特别注意，如果设置为true的话，在索引字段中不会查询出不包含对应字段的文档。默认值为 false
+    }
+)
+</code></pre></div><p>对学生成绩表创建索引：</p> <div class="language- extra-class"><pre class="language-text"><code>&gt; db.my_col.createIndex({&quot;score&quot;: 1}, {background: true})  #在后台创建
+&gt; db.my_col.getIndexes()   #查看集合索引
+&gt; db.my_col.totalIndexSize()  #查看集合索引大小
+&gt; db.my_col.dropIndex(&quot;索引名称&quot;)  #删除集合指定索引
+&gt; db.my_col.dropIndexes()  #删除集合所有索引
+</code></pre></div><h4 id="_3-可视化工具"><a href="#_3-可视化工具" class="header-anchor">#</a> 3 可视化工具</h4> <p>MongoDB有一款跨平台的可视化工具Robo 3T，非常简洁易用。
+下载安装地址：https://robomongo.org/download</p> <h4 id="_4-参考文档"><a href="#_4-参考文档" class="header-anchor">#</a> 4 参考文档</h4> <ul><li>MongoDB菜鸟教程：https://www.runoob.com/mongodb/mongodb-tutorial.html</li> <li>MongoDB高级查询：http://cw.hubwiz.com/card/c/543b2f3cf86387171814c026/1/1/1/</li> <li>MongoDB聚合：http://cw.hubwiz.com/card/c/548125a5f8638718f0db0792/1/1/1/</li> <li>MongoDB官方文档：https://docs.mongodb.com/manual/introduction/</li> <li>Robo 3T 使用教程：https://www.cnblogs.com/tugenhua0707/p/9250673.html&gt; MongoDB 是一种NoSQL 数据库，本文主要介绍MongoDB里面的一些基本概念和操作、以及可视化工具的安装和使用。</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b8c9f267.js" defer></script><script src="/assets/js/2.5effd679.js" defer></script><script src="/assets/js/25.4e3061bc.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Koa2</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.0bb10e40.css" as="style"><link rel="preload" href="/assets/js/app.b8c9f267.js" as="script"><link rel="preload" href="/assets/js/2.5effd679.js" as="script"><link rel="preload" href="/assets/js/34.80b14b0d.js" as="script"><link rel="prefetch" href="/assets/js/10.1e9d6dd9.js"><link rel="prefetch" href="/assets/js/11.36899433.js"><link rel="prefetch" href="/assets/js/12.7b375376.js"><link rel="prefetch" href="/assets/js/13.ca272700.js"><link rel="prefetch" href="/assets/js/14.62f85eb1.js"><link rel="prefetch" href="/assets/js/15.254f14ec.js"><link rel="prefetch" href="/assets/js/16.cd77e345.js"><link rel="prefetch" href="/assets/js/17.37843c59.js"><link rel="prefetch" href="/assets/js/18.ff049040.js"><link rel="prefetch" href="/assets/js/19.8b84c72e.js"><link rel="prefetch" href="/assets/js/20.c4e0cf47.js"><link rel="prefetch" href="/assets/js/21.5ca97ceb.js"><link rel="prefetch" href="/assets/js/22.1c3d3481.js"><link rel="prefetch" href="/assets/js/23.fe8a6329.js"><link rel="prefetch" href="/assets/js/24.6e50e452.js"><link rel="prefetch" href="/assets/js/25.4e3061bc.js"><link rel="prefetch" href="/assets/js/26.99d8657b.js"><link rel="prefetch" href="/assets/js/27.a658b46b.js"><link rel="prefetch" href="/assets/js/28.3a81a88b.js"><link rel="prefetch" href="/assets/js/29.7731a3d8.js"><link rel="prefetch" href="/assets/js/3.b60c999d.js"><link rel="prefetch" href="/assets/js/30.5e4771dc.js"><link rel="prefetch" href="/assets/js/31.8b7a30d8.js"><link rel="prefetch" href="/assets/js/32.01da18cd.js"><link rel="prefetch" href="/assets/js/33.db213850.js"><link rel="prefetch" href="/assets/js/35.832af720.js"><link rel="prefetch" href="/assets/js/36.af7bb98e.js"><link rel="prefetch" href="/assets/js/37.d454caa4.js"><link rel="prefetch" href="/assets/js/38.480b5662.js"><link rel="prefetch" href="/assets/js/4.cd2082ce.js"><link rel="prefetch" href="/assets/js/5.90db7dea.js"><link rel="prefetch" href="/assets/js/6.0e3d16be.js"><link rel="prefetch" href="/assets/js/7.31ff4035.js"><link rel="prefetch" href="/assets/js/8.ef9b5fc6.js"><link rel="prefetch" href="/assets/js/9.be78d7b3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0bb10e40.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="koa2"><a href="#koa2" class="header-anchor">#</a> Koa2</h3> <h4 id="_1-搭建环境"><a href="#_1-搭建环境" class="header-anchor">#</a> 1. 搭建环境</h4> <h6 id="新建文件夹"><a href="#新建文件夹" class="header-anchor">#</a> 新建文件夹</h6> <div class="language- extra-class"><pre><code>mkdir  koa2
+</code></pre></div><h6 id="注意不要使用koa-否则你下载不了包。"><a href="#注意不要使用koa-否则你下载不了包。" class="header-anchor">#</a> 注意不要使用koa  否则你下载不了包。</h6> <h6 id="初始化package-json"><a href="#初始化package-json" class="header-anchor">#</a> 初始化package.json</h6> <div class="language- extra-class"><pre><code>npm init -y
+</code></pre></div><h6 id="安装生产环境的koa"><a href="#安装生产环境的koa" class="header-anchor">#</a> 安装生产环境的koa</h6> <div class="language- extra-class"><pre><code>npm install --save koa
+</code></pre></div><h4 id="_2-第一个demo"><a href="#_2-第一个demo" class="header-anchor">#</a> 2.第一个demo</h4> <div class="language- extra-class"><pre><code>const Koa = require('koa');
+const app = new Koa();
+
+app.use(async(ctx)=&gt;{
+    ctx.body = 'hello koa2'
+})
+
+app.listen(3000);
+console.log('server start')
+</code></pre></div><h4 id="_3-koa-的get-请求"><a href="#_3-koa-的get-请求" class="header-anchor">#</a> 3. koa 的get 请求</h4> <h6 id="koa2-中的get获取到的request有俩种，一种是query，另一种是querystring"><a href="#koa2-中的get获取到的request有俩种，一种是query，另一种是querystring" class="header-anchor">#</a> koa2 中的get获取到的request有俩种，一种是query，另一种是querystring;</h6> <ul><li>query 是一个json对象</li> <li>querystring 是一个json字符串</li></ul> <h6 id="获取方式有两种："><a href="#获取方式有两种：" class="header-anchor">#</a> 获取方式有两种：</h6> <ul><li>通过ctx.request</li> <li>通过ctx直接获取</li></ul> <blockquote></blockquote> <div class="language- extra-class"><pre><code>const Koa = require('koa');
+const app = new Koa();
+app.use(async(ctx)=&gt;{
+    let url =ctx.url;
+    //从request中获取GET请求
+    let request =ctx.request;
+    let req_query = request.query;
+    let req_querystring = request.querystring;
+    //从上下文中直接获取
+    let ctx_query = ctx.query;
+    let ctx_querystring = ctx.querystring;
+    ctx.body={
+        url,
+        req_query,
+        req_querystring,
+        ctx_query,
+        ctx_querystring
+    }
+});
+app.listen(3000,()=&gt;{
+    console.log('[demo] server is starting at port 3000');
+});
+</code></pre></div><h4 id="_4-koa的post-请求"><a href="#_4-koa的post-请求" class="header-anchor">#</a> 4.koa的POST 请求</h4> <h6 id="koa2中提供了ctx-method属性，可以轻松的得到请求的类型"><a href="#koa2中提供了ctx-method属性，可以轻松的得到请求的类型" class="header-anchor">#</a> Koa2中提供了ctx.method属性，可以轻松的得到请求的类型</h6> <div class="language- extra-class"><pre><code>app.use(async (ctx) =&gt; {
+    if (ctx.url === '/' &amp;&amp; ctx.method === 'GET') {
+        ctx.body = `
+            &lt;html&gt;
+                &lt;form method=&quot;POST&quot; action=&quot;/&quot;&gt;
+                    &lt;p&gt;用户名&lt;/p&gt;
+                    &lt;input name=&quot;userName&quot;/&gt;&lt;br/&gt;
+                    &lt;p&gt;年龄&lt;/p&gt;
+                    &lt;input name=&quot;age&quot;/&gt;&lt;br/&gt;
+                    &lt;button type=&quot;submit&quot;&gt;提价&lt;/button&gt;
+                &lt;/form
+            &lt;/html
+        `
+    } else if (ctx.url === '/' &amp;&amp; ctx.method === 'POST') {
+        ctx.body = &quot;接收到了POST请求！！&quot;
+    } else {
+        ctx.body = &quot;404!!&quot;
+    }
+})
+</code></pre></div><h4 id="_5-使用koa-bodyparser获取request数据"><a href="#_5-使用koa-bodyparser获取request数据" class="header-anchor">#</a> 5.使用koa-bodyparser获取request数据</h4> <h6 id="首先要下载koa-bodyparser组件"><a href="#首先要下载koa-bodyparser组件" class="header-anchor">#</a> 首先要下载koa-bodyparser组件</h6> <div class="language- extra-class"><pre><code>npm install koa-bodyparser --save
+</code></pre></div><h6 id="必须得使用bodyparser才生效"><a href="#必须得使用bodyparser才生效" class="header-anchor">#</a> 必须得使用bodyparser才生效</h6> <div class="language- extra-class"><pre><code>const bodyParser = require('koa-bodyparser');
+app.use(bodyParser());
+</code></pre></div><h6 id="使用demo-（ctx-request-body）"><a href="#使用demo-（ctx-request-body）" class="header-anchor">#</a> 使用demo （ctx.request.body）</h6> <div class="language- extra-class"><pre><code>const Koa = require('koa');
+const bodyParser = require('koa-bodyparser');
+const app = new Koa();
+
+app.use(bodyParser());
+
+app.use(async (ctx) =&gt; {
+    if (ctx.url === '/' &amp;&amp; ctx.method === 'GET') {
+        ctx.body = `
+            &lt;html&gt;
+                &lt;form method=&quot;POST&quot; action=&quot;/&quot;&gt;
+                    &lt;p&gt;用户名&lt;/p&gt;
+                    &lt;input name=&quot;userName&quot;/&gt;&lt;br/&gt;
+                    &lt;p&gt;年龄&lt;/p&gt;
+                    &lt;input name=&quot;age&quot;/&gt;&lt;br/&gt;
+                    &lt;button type=&quot;submit&quot;&gt;提价&lt;/button&gt;
+                &lt;/form
+            &lt;/html
+        `
+    } else if (ctx.url === '/' &amp;&amp; ctx.method === 'POST') {
+        let bodyQuery = ctx.request.body;
+        ctx.body = bodyQuery;
+    } else {
+        ctx.body = &quot;404!!&quot;
+    }
+})
+
+app.listen(3000,()=&gt;{
+    console.log('node start server port 3000')
+})
+</code></pre></div><h4 id="_6-原生路由实现"><a href="#_6-原生路由实现" class="header-anchor">#</a> 6.原生路由实现</h4> <div class="language- extra-class"><pre><code>使用 let iconv = require('iconv-lite'); 进行字体的转码
+ data = iconv.decode(data, 'utf-8');
+</code></pre></div><h6 id="demo"><a href="#demo" class="header-anchor">#</a> Demo</h6> <div class="language- extra-class"><pre><code>const Koa = require('koa');
+const fs = require('fs');
+const iconv = require('iconv-lite');
+const app = new Koa();
+
+function render(page) {
+    return new Promise((resolve, reject) =&gt; {
+        let pageUrl = `./page/${page}`;
+        fs.readFile(pageUrl, &quot;binary&quot;, (err, data) =&gt; {
+            if (err) {
+                reject(err)
+            } else {
+                data = iconv.decode(data, 'utf-8');
+                resolve(data);
+            }
+        })
+    })
+}
+
+async function route(url) {
+    let html = '404.html'
+    switch (url) {
+        case '/':
+            html = 'index.html';
+            break;
+        case '/news':
+            html = 'news.html';
+            break;
+        case '/content':
+            html = 'content.html';
+            break;
+        case '/strange':
+            html = 'strange.html';
+            break;
+        default:
+            break;
+    }
+    let page = await render(html);
+    return page
+}
+
+app.use(async(ctx) =&gt; {
+    let url = ctx.request.url;
+    let html = await route(url);
+    ctx.body = html;
+})
+
+app.listen(3000, () =&gt; {
+    console.log('node server at port 3000!')
+})
+</code></pre></div><h4 id="_7-koa-router"><a href="#_7-koa-router" class="header-anchor">#</a> 7.koa-router</h4> <ul><li>koa-router 是生产环境中使用</li></ul> <blockquote><p>npm install koa-router --save</p></blockquote> <ul><li>router 使用</li></ul> <blockquote><p>const koaRouter = require('router');</p></blockquote> <blockquote><p>const router = new koaRouter();</p></blockquote> <ul><li>配置路由</li></ul> <blockquote><p>router.get('/', async(ctx, next) =&gt; {
+ctx.body = 'Hello World!!!!'
+})</p></blockquote> <ul><li>路由使用</li></ul> <blockquote><p>app
+.use(router.routes())
+.use(router.allowedMethods());</p></blockquote> <h6 id="demo-2"><a href="#demo-2" class="header-anchor">#</a> Demo</h6> <div class="language- extra-class"><pre><code>const Koa = require('koa');
+const koaRouter = require('koa-router');
+
+const app = new Koa();
+const router = new koaRouter();
+
+router.get('/', async(ctx, next) =&gt; {
+    ctx.body = 'Hello World!!!!'
+})
+
+app
+    .use(router.routes())
+    .use(router.allowedMethods());
+
+app.listen(3000, () =&gt; {
+    console.log('node server at port 3000')
+})
+</code></pre></div><h4 id="_8-koa-router-的层级"><a href="#_8-koa-router-的层级" class="header-anchor">#</a> 8.koa-router 的层级</h4> <h6 id="设置前缀"><a href="#设置前缀" class="header-anchor">#</a> 设置前缀</h6> <div class="language- extra-class"><pre><code>const router = new Router({
+    prefix:'/jspang'
+})
+</code></pre></div><h6 id="设置多级路由"><a href="#设置多级路由" class="header-anchor">#</a> 设置多级路由</h6> <div class="language- extra-class"><pre><code>const Koa = require('koa');
+const koaRouter = require('koa-router');
+
+const app = new Koa();
+
+let home = new koaRouter();
+home.get('/home', async(ctx) =&gt; {
+    ctx.body = &quot;Home home&quot;;
+}).get('/todo', async(ctx) =&gt; {
+    ctx.body = 'Home ToDo';
+})
+
+let page = new koaRouter();
+page.get('/home', async(ctx) =&gt; {
+    ctx.body = &quot;Page home&quot;;
+}).get('/todo', async(ctx) =&gt; {
+    ctx.body = 'Page ToDo';
+})
+
+let router = new koaRouter();
+router.use('/index', home.routes(), home.allowedMethods());
+router.use('/page', page.routes(), page.allowedMethods());
+
+app.use(router.routes()).use(router.allowedMethods());
+
+app.listen(3000, () =&gt; {
+    console.log('node server at port 3000')
+})
+</code></pre></div><h4 id="_9-koa-中使用cookie"><a href="#_9-koa-中使用cookie" class="header-anchor">#</a> 9.koa 中使用cookie</h4> <ul><li>ctx.cookies.get(name,[optins]):读取上下文请求中的cookie。</li> <li>ctx.cookies.set(name,value,[options])：在上下文中写入cookie。</li></ul> <h6 id="写入cookie操作"><a href="#写入cookie操作" class="header-anchor">#</a> 写入Cookie操作</h6> <ul><li>domain：写入cookie所在的域名</li> <li>path：写入cookie所在的路径</li> <li>maxAge：Cookie最大有效时长</li> <li>expires：cookie失效时间</li> <li>httpOnly:是否只用http请求中获得</li> <li>overwirte：是否允许重写</li></ul> <h6 id="demo-3"><a href="#demo-3" class="header-anchor">#</a> demo</h6> <div class="language- extra-class"><pre><code>const Koa = require('koa');
+const app = new Koa();
+
+app.use(async(ctx) =&gt; {
+    if (ctx.request.url === '/index') {
+        ctx.cookies.set(
+            'name',
+            'yueshuai', {
+                domain: '127.0.0.1', // 写cookie所在的域名
+                path: '/index', // 写cookie所在的路径
+                maxAge: 1000 * 60 * 60 * 24, // cookie有效时长
+                expires: new Date('2018-12-31'), // cookie失效时间
+                httpOnly: false, // 是否只用于http请求中获取
+                overwrite: false // 是否允许重写
+            }
+        )
+        ctx.body = 'cookie set ok';
+    } else {
+        let message = ctx.cookies.get('name');
+        if (message) {
+            ctx.body = ctx.cookies.get('name');
+        } else {
+            ctx.body = &quot;cookie get none&quot;;
+        }
+    }
+})
+
+app.listen(3000, () =&gt; {
+    console.log('node server start at port 3000')
+})
+</code></pre></div><h4 id="_10-koa-static静态资源中间件"><a href="#_10-koa-static静态资源中间件" class="header-anchor">#</a> 10.koa-static静态资源中间件</h4> <h6 id="安装-koa-static"><a href="#安装-koa-static" class="header-anchor">#</a> 安装 koa-static</h6> <blockquote><p>npm install --save koa-static</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>const Koa = require('koa'),
+    router = require('koa-router'),
+    static = require('koa-static');
+
+let app = new Koa();
+
+app.use(static(__dirname+'/static'));
+
+app.listen('3000');
+
+console.log('服务器启动成功~')
+</code></pre></div><h4 id="_11-中间件处理"><a href="#_11-中间件处理" class="header-anchor">#</a> 11.中间件处理</h4> <h6 id="应用级中间件"><a href="#应用级中间件" class="header-anchor">#</a> 应用级中间件</h6> <div class="language- extra-class"><pre class="language-text"><code>app.use(async (ctx, next)=&gt; {
+    console.log('这个是中间件！！！')
+    await next();
+    console.log('匹配完成后再次执行中间件！！')
+})
+</code></pre></div><h6 id="路由级中间件"><a href="#路由级中间件" class="header-anchor">#</a> 路由级中间件</h6> <div class="language- extra-class"><pre class="language-text"><code>router.get('/news', async(ctx,next)=&gt;{
+    console.log('路由级中间件');
+    await next();
+})
+router.get('/news', async(ctx)=&gt;{
+    ctx.body = '这是一个新闻！'
+})
+</code></pre></div><h5 id="错误处理中间件"><a href="#错误处理中间件" class="header-anchor">#</a> 错误处理中间件</h5> <p><strong>先执行app.use 再匹配路由</strong></p> <div class="language- extra-class"><pre class="language-text"><code>app.use(async (ctx, next)=&gt;{
+    console.log('这是一个中间件');
+    
+    await next();
+
+    if(ctx.status === 404) {
+        ctx.body = '404 ERROR'
+    }else {
+        console.log(ctx.url)
+    }
+})
+</code></pre></div><h4 id="_11-ejs-模版使用"><a href="#_11-ejs-模版使用" class="header-anchor">#</a> 11.ejs 模版使用</h4> <div class="language- extra-class"><pre class="language-text"><code>npm i koa-views ejs --save
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>// app.use(view(__dirname,{extension: 'ejs'}))
+// 方法一  这样配的模板名是html
+app.use(views('page', { map: { html: 'ejs' } }));
+// 方法二  可以指定后缀名
+app.use(views('page',{
+    extension: 'html'
+}))
+
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>await ctx.render('index');
+</code></pre></div><h6 id="渲染"><a href="#渲染" class="header-anchor">#</a> 渲染</h6> <div class="language- extra-class"><pre class="language-text"><code>router.get('/', async (ctx, next) =&gt; {
+    // 使用ejs数据
+    await ctx.render('news', {
+        title: 'Hello ejs!!!'
+    });
+})
+</code></pre></div><h6 id="ejs使用"><a href="#ejs使用" class="header-anchor">#</a> ejs使用</h6> <ol><li>循环数据</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&lt;ul&gt;
+    &lt;%for(var i=0; i&lt;lists.length; i++){%&gt;
+        &lt;li&gt;&lt;%=lists[i]%&gt;&lt;/li&gt;
+    &lt;%}%&gt;
+&lt;/ul&gt;
+</code></pre></div><ol start="2"><li>判断语句</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&lt;%if(number === 10) {%&gt;  
+    &lt;div&gt;是10&lt;/div&gt;  
+&lt;%}else{%&gt;
+    &lt;div&gt;不是10&lt;/div&gt;
+&lt;%}%&gt;
+</code></pre></div><ol start="3"><li>引入模板</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&lt;%- include header.ejs %&gt;
+</code></pre></div><ol start="4"><li>绑定数据</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&lt;%=h%&gt;
+</code></pre></div><h6 id="公共数据-所有路由的数据都可以使用"><a href="#公共数据-所有路由的数据都可以使用" class="header-anchor">#</a> 公共数据(所有路由的数据都可以使用)</h6> <div class="language- extra-class"><pre class="language-text"><code>app.use(async (ctx, next)=&gt;{
+    ctx.state = {
+        name: '王五'
+    }
+    await next();
+})
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b8c9f267.js" defer></script><script src="/assets/js/2.5effd679.js" defer></script><script src="/assets/js/34.80b14b0d.js" defer></script>
+  </body>
+</html>

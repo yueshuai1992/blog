@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Egret 绘制图形</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.0bb10e40.css" as="style"><link rel="preload" href="/assets/js/app.b8c9f267.js" as="script"><link rel="preload" href="/assets/js/2.5effd679.js" as="script"><link rel="preload" href="/assets/js/11.36899433.js" as="script"><link rel="prefetch" href="/assets/js/10.1e9d6dd9.js"><link rel="prefetch" href="/assets/js/12.7b375376.js"><link rel="prefetch" href="/assets/js/13.ca272700.js"><link rel="prefetch" href="/assets/js/14.62f85eb1.js"><link rel="prefetch" href="/assets/js/15.254f14ec.js"><link rel="prefetch" href="/assets/js/16.cd77e345.js"><link rel="prefetch" href="/assets/js/17.37843c59.js"><link rel="prefetch" href="/assets/js/18.ff049040.js"><link rel="prefetch" href="/assets/js/19.8b84c72e.js"><link rel="prefetch" href="/assets/js/20.c4e0cf47.js"><link rel="prefetch" href="/assets/js/21.5ca97ceb.js"><link rel="prefetch" href="/assets/js/22.1c3d3481.js"><link rel="prefetch" href="/assets/js/23.fe8a6329.js"><link rel="prefetch" href="/assets/js/24.6e50e452.js"><link rel="prefetch" href="/assets/js/25.4e3061bc.js"><link rel="prefetch" href="/assets/js/26.99d8657b.js"><link rel="prefetch" href="/assets/js/27.a658b46b.js"><link rel="prefetch" href="/assets/js/28.3a81a88b.js"><link rel="prefetch" href="/assets/js/29.7731a3d8.js"><link rel="prefetch" href="/assets/js/3.b60c999d.js"><link rel="prefetch" href="/assets/js/30.5e4771dc.js"><link rel="prefetch" href="/assets/js/31.8b7a30d8.js"><link rel="prefetch" href="/assets/js/32.01da18cd.js"><link rel="prefetch" href="/assets/js/33.db213850.js"><link rel="prefetch" href="/assets/js/34.80b14b0d.js"><link rel="prefetch" href="/assets/js/35.832af720.js"><link rel="prefetch" href="/assets/js/36.af7bb98e.js"><link rel="prefetch" href="/assets/js/37.d454caa4.js"><link rel="prefetch" href="/assets/js/38.480b5662.js"><link rel="prefetch" href="/assets/js/4.cd2082ce.js"><link rel="prefetch" href="/assets/js/5.90db7dea.js"><link rel="prefetch" href="/assets/js/6.0e3d16be.js"><link rel="prefetch" href="/assets/js/7.31ff4035.js"><link rel="prefetch" href="/assets/js/8.ef9b5fc6.js"><link rel="prefetch" href="/assets/js/9.be78d7b3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0bb10e40.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="egret-绘制图形"><a href="#egret-绘制图形" class="header-anchor">#</a> Egret 绘制图形</h3> <h4 id="绘制矩形"><a href="#绘制矩形" class="header-anchor">#</a> 绘制矩形</h4> <div class="language- extra-class"><pre class="language-text"><code>private drawRect(color: number=0xffffff, x: number=0, y: number=0, width: number=100, height: number=100): egret.Sprite{
+    let box: egret.Sprite = new egret.Sprite();
+    // 描边（第一个参数是宽度，第二个参数是颜色，第三个是透明度）
+    box.graphics.lineStyle(5, 0x0000ff);
+    // 设置填充色（第一个参数是颜色，第二个是透明度(可以省略)）
+    box.graphics.beginFill(color, 0.8);
+    // 绘制矩形x: 横坐标；y: 纵坐标；width: 宽度；height: 高度；
+    box.graphics.drawRect(x, y, width, height);
+    // 结束绘制
+    box.graphics.endFill();
+    return box;
+}
+</code></pre></div><h4 id="绘制圆形"><a href="#绘制圆形" class="header-anchor">#</a> 绘制圆形</h4> <div class="language- extra-class"><pre class="language-text"><code>private drawCirle(color: number=0xffffff, x: number=0, y: number=0, r: number=10): egret.Sprite {
+    let cirle: egret.Sprite = new egret.Sprite();
+    // 设置填充色（第一个参数是颜色，第二个是透明度(可以省略)）
+    cirle.graphics.beginFill(color);
+    // 描边（第一个参数是宽度，第二个参数是颜色，第三个是透明度）
+    cirle.graphics.lineStyle(5, 0x0000ff, 0.4);
+    // 绘制矩形x: 横坐标；y: 纵坐标；r: 半径
+    cirle.graphics.drawCircle(x, y, r);
+    cirle.graphics.endFill();
+    return cirle;
+}
+</code></pre></div><h4 id="绘制直线"><a href="#绘制直线" class="header-anchor">#</a> 绘制直线</h4> <div class="language- extra-class"><pre class="language-text"><code>private drawLine(): egret.Sprite {
+    let line: egret.Sprite = new egret.Sprite();
+    // 描边（第一个参数是宽度，第二个参数是颜色，第三个是透明度）
+    line.graphics.lineStyle(3, 0xff00ff);
+    line.graphics.moveTo(68, 84);
+    line.graphics.lineTo(167, 76);
+    line.graphics.lineTo(221, 118);
+    line.graphics.lineTo(290, 162);
+    line.graphics.lineTo(297, 228);
+    line.graphics.lineTo(412, 250);
+    line.graphics.lineTo(443, 174);
+    line.graphics.endFill();
+    return line
+}
+</code></pre></div><h4 id="绘制曲线"><a href="#绘制曲线" class="header-anchor">#</a> 绘制曲线</h4> <p>二次贝塞尔曲线</p> <div class="language- extra-class"><pre class="language-text"><code>private drawCurve(): egret.Sprite {
+    let curve: egret.Sprite = new egret.Sprite();
+    curve.graphics.lineStyle(3, 0x0f0ff0);
+    // 起始点的坐标
+    curve.graphics.moveTo(50, 50);
+    // 第一个点的坐标，第二个点的坐标
+    curve.graphics.curveTo(100, 100, 200, 50);
+    curve.graphics.endFill();
+    return curve;
+}
+</code></pre></div><h4 id="绘制圆弧"><a href="#绘制圆弧" class="header-anchor">#</a> 绘制圆弧</h4> <div class="language- extra-class"><pre class="language-text"><code>private drawArc(): egret.Sprite {
+    let arc: egret.Sprite = new egret.Sprite();
+    arc.graphics.lineStyle(3, 0xf0f0f0);
+    arc.graphics.beginFill(0xff00f0);
+    // 横坐标 纵坐标 半径 起始角度 结束角度 顺时针/逆时针
+    arc.graphics.drawArc(400, 400, 40, 0, Math.PI, true);
+    arc.graphics.endFill();
+    return arc
+}
+</code></pre></div><h4 id="清除绘制"><a href="#清除绘制" class="header-anchor">#</a> 清除绘制</h4> <div class="language- extra-class"><pre class="language-text"><code>容器.graphics.clear();
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b8c9f267.js" defer></script><script src="/assets/js/2.5effd679.js" defer></script><script src="/assets/js/11.36899433.js" defer></script>
+  </body>
+</html>

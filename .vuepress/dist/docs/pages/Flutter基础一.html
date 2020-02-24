@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Flutter 基础（一）</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.0bb10e40.css" as="style"><link rel="preload" href="/assets/js/app.b8c9f267.js" as="script"><link rel="preload" href="/assets/js/2.5effd679.js" as="script"><link rel="preload" href="/assets/js/13.ca272700.js" as="script"><link rel="prefetch" href="/assets/js/10.1e9d6dd9.js"><link rel="prefetch" href="/assets/js/11.36899433.js"><link rel="prefetch" href="/assets/js/12.7b375376.js"><link rel="prefetch" href="/assets/js/14.62f85eb1.js"><link rel="prefetch" href="/assets/js/15.254f14ec.js"><link rel="prefetch" href="/assets/js/16.cd77e345.js"><link rel="prefetch" href="/assets/js/17.37843c59.js"><link rel="prefetch" href="/assets/js/18.ff049040.js"><link rel="prefetch" href="/assets/js/19.8b84c72e.js"><link rel="prefetch" href="/assets/js/20.c4e0cf47.js"><link rel="prefetch" href="/assets/js/21.5ca97ceb.js"><link rel="prefetch" href="/assets/js/22.1c3d3481.js"><link rel="prefetch" href="/assets/js/23.fe8a6329.js"><link rel="prefetch" href="/assets/js/24.6e50e452.js"><link rel="prefetch" href="/assets/js/25.4e3061bc.js"><link rel="prefetch" href="/assets/js/26.99d8657b.js"><link rel="prefetch" href="/assets/js/27.a658b46b.js"><link rel="prefetch" href="/assets/js/28.3a81a88b.js"><link rel="prefetch" href="/assets/js/29.7731a3d8.js"><link rel="prefetch" href="/assets/js/3.b60c999d.js"><link rel="prefetch" href="/assets/js/30.5e4771dc.js"><link rel="prefetch" href="/assets/js/31.8b7a30d8.js"><link rel="prefetch" href="/assets/js/32.01da18cd.js"><link rel="prefetch" href="/assets/js/33.db213850.js"><link rel="prefetch" href="/assets/js/34.80b14b0d.js"><link rel="prefetch" href="/assets/js/35.832af720.js"><link rel="prefetch" href="/assets/js/36.af7bb98e.js"><link rel="prefetch" href="/assets/js/37.d454caa4.js"><link rel="prefetch" href="/assets/js/38.480b5662.js"><link rel="prefetch" href="/assets/js/4.cd2082ce.js"><link rel="prefetch" href="/assets/js/5.90db7dea.js"><link rel="prefetch" href="/assets/js/6.0e3d16be.js"><link rel="prefetch" href="/assets/js/7.31ff4035.js"><link rel="prefetch" href="/assets/js/8.ef9b5fc6.js"><link rel="prefetch" href="/assets/js/9.be78d7b3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0bb10e40.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="flutter-基础（一）"><a href="#flutter-基础（一）" class="header-anchor">#</a> Flutter 基础（一）</h3> <h4 id="_1-地址"><a href="#_1-地址" class="header-anchor">#</a> 1. 地址</h4> <ul><li>https://github.com/kangshaojun</li> <li>https://www.jianshu.com/p/cda416e2fc0d</li> <li>https://www.jianshu.com/p/b50a92afbef1</li></ul> <h4 id="_2-lib-main-bat"><a href="#_2-lib-main-bat" class="header-anchor">#</a> 2. lib/main.bat</h4> <div class="language- extra-class"><pre class="language-text"><code>import 'package:flutter/material.dart';
+
+//主函数（入口函数），下面我会简单说说Dart的函数
+void main() =&gt;runApp(MyApp());
+// 声明MyApp类
+class MyApp extends StatelessWidget{
+  //重写build方法
+  @override
+  Widget build(BuildContext context){
+    //返回一个Material风格的组件
+   return MaterialApp(
+      title:'Welcome to Flutteraa',
+      home:Scaffold(
+        //创建一个Bar，并添加文本
+        appBar:AppBar(
+          title:Text('Welcome to Flutter'),
+        ),
+        //在主体的中间区域，添加一个hello world 的文本
+        body:Center(
+          child:Text('Hello World'),
+        ),
+      ),
+    );
+  }
+}
+</code></pre></div><ul><li>r 键：点击后热加载，也就算是重新加载吧。</li> <li>p 键：显示网格，这个可以很好的掌握布局情况，工作中很有用。</li> <li>o 键：切换android和ios的预览模式。</li> <li>q 键：退出调试预览模式。</li></ul> <h4 id="_3-textalign属性"><a href="#_3-textalign属性" class="header-anchor">#</a> 3. TextAlign属性</h4> <p>TextAlign属性就是文本的对齐方式，它的属性值有如下几个（详细请看视频中讲解）：</p> <ul><li>center: 文本以居中形式对齐,这个也算比较常用的了。</li> <li>left:左对齐，经常使用，让文本居左进行对齐，效果和start一样。</li> <li>right :右对齐，使用频率也不算高。</li> <li>start:以开始位置进行对齐，类似于左对齐。</li> <li>end: 以为本结尾处进行对齐，不常用。有点类似右对齐.</li></ul> <p>总结起来，也就算三个对齐方式，left(左对齐)、center（居中对齐）、right（右对齐）。我们来看一下具体代码：</p> <div class="language- extra-class"><pre class="language-text"><code>child:Text(
+  'Hello JSPang  ,非常喜欢前端，并且愿意为此奋斗一生。我希望可以出1000集免费教程。',
+  textAlign:TextAlign.left,
+)
+</code></pre></div><h4 id="_4-maxlines属性"><a href="#_4-maxlines属性" class="header-anchor">#</a> 4. maxLines属性</h4> <p>设置最多显示的行数，比如我们现在只显示1行，类似一个新闻列表的题目。代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>child:Text(
+  'Hello JSPang  ,非常喜欢前端，并且愿意为此奋斗一生。我希望可以出1000集免费教程。',
+  textAlign:TextAlign.left,
+  maxLines: 1,
+)
+</code></pre></div><p>设置好后，文字只能显示出1行了。</p> <h4 id="_5-overflow属性"><a href="#_5-overflow属性" class="header-anchor">#</a> 5. overflow属性</h4> <ul><li>overflow属性是用来设置文本溢出时，如何处理,它有下面几个常用的值供我们选择。</li> <li>clip：直接切断，剩下的文字就没有了，感觉不太友好，体验性不好。</li> <li>ellipsis:在后边显示省略号，体验性较好，这个在工作中经常使用。</li> <li>fade: 溢出的部分会进行一个渐变消失的效果，当然是上线的渐变，不是左右的哦。</li></ul> <h4 id="_6-style属性"><a href="#_6-style属性" class="header-anchor">#</a> 6. style属性</h4> <p>https://docs.flutter.io/flutter/painting/TextStyle-class.html</p> <h4 id="_7-alignment属性"><a href="#_7-alignment属性" class="header-anchor">#</a> 7. alignment属性</h4> <ul><li>bottomCenter:下部居中对齐。</li> <li>botomLeft: 下部左对齐。</li> <li>bottomRight：下部右对齐。</li> <li>center：纵横双向居中对齐。</li> <li>centerLeft：纵向居中横向居左对齐。</li> <li>centerRight：纵向居中横向居右对齐。</li> <li>topLeft：顶部左侧对齐。</li> <li>topCenter：顶部居中对齐。</li> <li>topRight： 顶部居左对齐。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>import 'package:flutter/material.dart';
+void main () =&gt; runApp(MyApp());
+class MyApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context ){
+      return MaterialApp(
+        title:'Text widget',
+        home:Scaffold(
+          body:Center(
+           child:Container(
+             child:new Text('Hello JSPang',style: TextStyle(fontSize: 40.0),),
+             alignment: Alignment.center,
+           ),
+          ),
+        ),
+      );
+  }
+}
+</code></pre></div><p>设置宽、高和颜色属性
+设置宽、高和颜色属性是相对容易的，只要在属性名称后面加入浮点型数字就可以了，比如要设置宽是500，高是400，颜色为亮蓝色。代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>child:Container(
+  child:new Text('Hello JSPang',style: TextStyle(fontSize: 40.0),),
+  alignment: Alignment.center,
+  width:500.0,
+  height:400.0,
+  color: Colors.lightBlue,
+),
+</code></pre></div><h4 id="_8-padding属性"><a href="#_8-padding属性" class="header-anchor">#</a> 8. padding属性</h4> <p>padding的属性就是一个内边距，它和你使用的前端技术CSS里的padding表现形式一样，指的是Container边缘和child内容的距离。先来看一个内边距为10的例子。具体代码如下(我们还是接着上节课的代码来写)：</p> <div class="language- extra-class"><pre class="language-text"><code>child:Container(
+  child:new Text('Hello JSPang',style: TextStyle(fontSize: 40.0),),
+  alignment: Alignment.topLeft,
+  width:500.0,
+  height:400.0,
+  color: Colors.lightBlue,
+  padding:const EdgeInsets.all(10.0),
+),
+
+
+padding:const EdgeInsets.all(10.0),
+</code></pre></div><p>这句的意思是设置Container的内边距是10，左右上下全部为10，这看起来非常容易。那我们再加大一点难度。如果上边距为30，左边距为10，这时候EdgeInsets.all()就满足不了我们了。
+EdgeInsets.fromLTRB(value1,value2,value3,value4)</p> <p>我们用EdgeInsets.fromLTRB(value1,value2,value3,value4) 可以满足我们的需求，LTRB分别代表左、上、右、下。
+那我们设置上边距为30，左边距为10，就可以用下面的代码来编写。
+padding:const EdgeInsets.fromLTRB(10.0,30.0,0.0,0.0),</p> <h4 id="_9-margin属性"><a href="#_9-margin属性" class="header-anchor">#</a> 9. margin属性</h4> <p>会了padding属性的设置，margin就变的非常容易了，因为方法基本上一样。不过margin是外边距，只的是container和外部元素的距离。
+现在要把container的外边距设置为10个单位，代码如下:</p> <div class="language- extra-class"><pre class="language-text"><code>child:Container(
+  child:new Text('Hello JSPang',style: TextStyle(fontSize: 40.0),),
+  alignment: Alignment.topLeft,
+  width:500.0,
+  height:400.0,
+  color: Colors.lightBlue,
+  padding:const EdgeInsets.fromLTRB(10.0,30.0,0.0,0.0),
+  margin: const EdgeInsets.all(10.0),
+),
+</code></pre></div><h4 id="_10-decoration属性"><a href="#_10-decoration属性" class="header-anchor">#</a> 10. decoration属性</h4> <p>decoration是 container 的修饰器，主要的功能是设置背景和边框。
+比如你需要给背景加入一个渐变，这时候需要使用BoxDecoration这个类，代码如下（需要注意的是如果你设置了decoration，就不要再设置color属性了，因为这样会冲突）。</p> <div class="language- extra-class"><pre class="language-text"><code>child:Container(
+  child:new Text('Hello JSPang',style: TextStyle(fontSize: 40.0),),
+  alignment: Alignment.topLeft,
+  width:500.0,
+  height:400.0,
+  padding:const EdgeInsets.fromLTRB(10.0,30.0,0.0,0.0),
+  margin: const EdgeInsets.all(10.0),
+  decoration:new BoxDecoration(
+    gradient:const LinearGradient(
+      colors:[Colors.lightBlue,Colors.greenAccent,Colors.purple]
+    ),
+    border: Border.all(width: 5.0, color: Colors.red)
+  ),
+),
+</code></pre></div><p>上面的代码去掉了color的设置，这时候container的背景就变成了渐变颜色
+border:Border.all(width:2.0,color:Colors.red)</p> <h4 id="_11-image图片组件的使用"><a href="#_11-image图片组件的使用" class="header-anchor">#</a> 11. Image图片组件的使用</h4> <ul><li>Image.asset:加载资源图片，就是加载项目资源目录中的图片,加入图片后会增大打包的包体体积，用的是相对路径。</li> <li>Image.network:网络资源图片，意思就是你需要加入一段http://xxxx.xxx的这样的网络路径地址。</li> <li>Image.file:加载本地图片，就是加载本地文件中的图片，这个是一个绝对路径，跟包体无关。</li> <li>Image.memory: 加载Uint8List资源图片,这个我目前用的不是很多，所以没什么发言权。</li></ul> <h4 id="_12-fit属性的设置"><a href="#_12-fit属性的设置" class="header-anchor">#</a> 12. fit属性的设置</h4> <ul><li>BoxFit.fill:全图显示，图片会被拉伸，并充满父容器。</li> <li>BoxFit.contain:全图显示，显示原比例，可能会有空隙。</li> <li>BoxFit.cover：显示可能拉伸，可能裁切，充满（图片要充满整个容器，还不变形）。</li> <li>BoxFit.fitWidth：宽度充满（横向充满），显示可能拉伸，可能裁切。</li> <li>BoxFit.fitHeight ：高度充满（竖向充满）,显示可能拉伸，可能裁切。</li> <li>BoxFit.scaleDown：效果和contain差不多，但是此属性不允许显示超过源图片大小，可小不可大。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>child:new Image.network(
+  'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=653666270,723497068&amp;fm=26&amp;gp=0.jpg',
+  scale:2.0,
+  fit: BoxFit.cover,
+),
+</code></pre></div><h4 id="_13-图片的混合模式"><a href="#_13-图片的混合模式" class="header-anchor">#</a> 13. 图片的混合模式</h4> <p>图片混合模式（colorBlendMode）和color属性配合使用，能让图片改变颜色，里边的模式非常的多，产生的效果也是非常丰富的。</p> <div class="language- extra-class"><pre class="language-text"><code>child:new Image.network(
+  'http://jspang.com/static/myimg/blogtouxiang.jpg',
+    color: Colors.greenAccent,
+    colorBlendMode: BlendMode.darken,
+),
+</code></pre></div><ul><li>color：是要混合的颜色，如果你只设置color是没有意义的。</li> <li>colorBlendMode:是混合模式，相当于我们如何混合。</li></ul> <h4 id="_14-repeat图片重复"><a href="#_14-repeat图片重复" class="header-anchor">#</a> 14. repeat图片重复</h4> <ul><li>ImageRepeat.repeat : 横向和纵向都进行重复，直到铺满整个画布。</li> <li>ImageRepeat.repeatX: 横向重复，纵向不重复。</li> <li>ImageRepeat.repeatY：纵向重复，横向不重复。
+来个全部重复的代码。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>child:new Image.network(
+  'http://jspang.com/static/myimg/blogtouxiang.jpg',
+   repeat: ImageRepeat.repeat,
+),
+</code></pre></div><h4 id="_15-listview的声明"><a href="#_15-listview的声明" class="header-anchor">#</a> 15. ListView的声明</h4> <div class="language- extra-class"><pre class="language-text"><code>body: new ListView(
+  children:&lt;Widget&gt;[
+    new ListTile(
+      leading:new Icon(Icons.access_time),
+      title:new Text('access_time')
+    )
+  ]
+),
+</code></pre></div><h4 id="_16-图片列表的使用"><a href="#_16-图片列表的使用" class="header-anchor">#</a> 16. 图片列表的使用</h4> <p>上节课学习了Image Widget，在这里我们就在列表中加入图片来试一下。我们插入4幅图片，然后看一下效果，代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>body: new ListView(
+  children:&lt;Widget&gt;[
+   new Image.network(
+       'http://jspang.com/static/upload/20181111/G-wj-ZQuocWlYOHM6MT2Hbh5.jpg'
+   ),
+   new Image.network(
+       'http://jspang.com/static/upload/20181109/1bHNoNGpZjyriCNcvqdKo3s6.jpg'
+   ),
+  ]
+),
+</code></pre></div><h4 id="_17-制作横向列表"><a href="#_17-制作横向列表" class="header-anchor">#</a> 17. 制作横向列表</h4> <p>这个我们先来看效果，然后再具体讲解使用方法:</p> <div class="language- extra-class"><pre class="language-text"><code>import 'package:flutter/material.dart';
+void main () =&gt; runApp(MyApp());
+class MyApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context ){
+      return MaterialApp(
+        title:'Text widget',
+        home:Scaffold(
+          body:Center(
+          child:Container(
+            height:200.0,
+            child:new ListView(
+              scrollDirection: Axis.horizontal,
+              children: &lt;Widget&gt;[
+                new Container(
+                  width:180.0,
+                  color: Colors.lightBlue,
+                ), new Container(
+                  width:180.0,
+                  color: Colors.amber,
+                ), new Container(
+                  width:180.0,
+                  color: Colors.deepOrange,
+                ),new Container(
+                  width:180.0,
+                  color: Colors.deepPurpleAccent,
+                ),
+              ],
+            )
+          ),
+          ),
+        ),
+      );
+  }
+}
+</code></pre></div><p>我们先是加入了Center组件，作用是让我们的横向列表可以居中到屏幕的中间位置，然后在center组件的下面加入了Container容器组件，并设置了容器组件的高是200，在容器组件里我们加入了ListView组件，然后设置了组件的scrollDirection属性
+scrollDirection属性</p> <ul><li>ListView组件的scrollDirection属性只有两个值，一个是横向滚动，一个是纵向滚动。默认的就是垂直滚动，所以如果是垂直滚动，我们一般都不进行设置。</li> <li>Axis.horizontal:横向滚动或者叫水平方向滚动。</li> <li>Axis.vertical:纵向滚动或者叫垂直方向滚动。</li></ul> <h4 id="_18-dart-list类型的使用"><a href="#_18-dart-list类型的使用" class="header-anchor">#</a> 18. Dart List类型的使用</h4> <p>List是Dart的集合类型之一,其实你可以把它简单理解为数组（反正我是这么认为的），其他语言也都有这个类型。它的声明有几种方式：</p> <div class="language- extra-class"><pre class="language-text"><code>var myList = List(): 非固定长度的声明。
+var myList = List(2): 固定长度的声明。
+var myList= List&lt;String&gt;():固定类型的声明方式。
+var myList = [1,2,3]: 对List直接赋值。
+</code></pre></div><p>那我们这里使用的是一个List传递，然后直接用List中的generate方法进行生产List里的元素。最后的结果是生产了一个带值的List变量。代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>void main () =&gt; runApp(MyApp(
+  items: new List&lt;String&gt;.generate(1000, (i)=&gt; &quot;Item $i&quot;)
+));
+</code></pre></div><p>说明:再main函数的runApp中调用了MyApp类，再使用类的使用传递了一个items参数,并使用generate生成器对items进行赋值。
+generate方法传递两个参数，第一个参数是生成的个数，第二个是方法。
+接受参数
+我们已经传递了参数，那MyApp这个类是需要接收的。</p> <div class="language- extra-class"><pre class="language-text"><code>final List&lt;String&gt; items;
+ MyApp({Key key, @required this.items}):super(key:key);
+</code></pre></div><p>这是一个构造函数，除了Key，我们增加了一个必传参数，这里的@required意思就必传。:super如果父类没有无名无参数的默认构造函数，则子类必须手动调用一个父类构造函数。
+这样我们就可以接收一个传递过来的参数了，当然我们要事先进行声明。
+动态列表 ListView.builder()</p> <div class="language- extra-class"><pre class="language-text"><code>import 'package:flutter/material.dart';
+void main () =&gt; runApp(MyApp(
+  items: new List&lt;String&gt;.generate(1000, (i)=&gt; &quot;Item $i&quot;)
+));
+class MyApp extends StatelessWidget{
+  final List&lt;String&gt; items;
+  MyApp({Key key, @required this.items}):super(key:key);
+  @override
+  Widget build(BuildContext context ){
+      return MaterialApp(
+        title:'ListView widget',
+        home:Scaffold(
+          body:new ListView.builder(
+            itemCount:items.length,
+            itemBuilder:(context,index){
+              return new ListTile(
+                title:new Text('${items[index]}'),
+              );
+            }
+          )
+        ),
+      );
+  }
+}
+</code></pre></div><p>GridView网格列表组件</p> <div class="language- extra-class"><pre class="language-text"><code>body: GridView.count(
+    padding: const EdgeInsets.all(20.0),
+    crossAxisCount: 3,
+    crossAxisSpacing: 10.0,
+    children: &lt;Widget&gt;[
+      const Text('I am Jamse'),
+      const Text('I love WEB'),
+      const Text('JavaScript'),
+      const Text('Dart'),
+      const Text('Flutter')
+    ],
+)
+</code></pre></div><ul><li>padding:表示内边距，这个小伙伴们应该很熟悉。</li> <li>crossAxisSpacing:网格间的空当，相当于每个网格之间的间距。</li> <li>crossAxisCount:网格的列数，相当于一行放置的网格数量。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>body: GridView.count(
+    padding: const EdgeInsets.all(20.0),
+    crossAxisCount: 3,
+    crossAxisSpacing: 10.0,
+    mainAxisSpacing: 10.0,
+    childAspectRatio: 0.7,
+    children: &lt;Widget&gt;[
+      new Image.network('http://img5.mtime.cn/mt/2018/10/22/104316.77318635_180X260X4.jpg',fit: BoxFit.cover),
+      new Image.network('http://img5.mtime.cn/mt/2018/10/10/112514.30587089_180X260X4.jpg',fit: BoxFit.cover),
+      new Image.network('http://img5.mtime.cn/mt/2018/11/13/093605.61422332_180X260X4.jpg',fit: BoxFit.cover),
+      new Image.network('http://img5.mtime.cn/mt/2018/11/07/092515.55805319_180X260X4.jpg',fit: BoxFit.cover),
+      new Image.network('http://img5.mtime.cn/mt/2018/11/21/090246.16772408_135X190X4.jpg',fit: BoxFit.cover),
+      new Image.network('http://img5.mtime.cn/mt/2018/11/17/162028.94879602_135X190X4.jpg',fit: BoxFit.cover),
+      new Image.network('http://img5.mtime.cn/mt/2018/11/19/165350.52237320_135X190X4.jpg',fit: BoxFit.cover),
+      new Image.network('http://img5.mtime.cn/mt/2018/11/16/115256.24365160_180X260X4.jpg',fit: BoxFit.cover),
+      new Image.network('http://img5.mtime.cn/mt/2018/11/20/141608.71613590_135X190X4.jpg',fit: BoxFit.cover)
+    ],
+)
+</code></pre></div><p>childAspectRatio:宽高比，这个值的意思是宽是高的多少倍，如果宽是高的2倍，那我们就写2.0，如果高是宽的2倍，我们就写0.5。</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b8c9f267.js" defer></script><script src="/assets/js/2.5effd679.js" defer></script><script src="/assets/js/13.ca272700.js" defer></script>
+  </body>
+</html>

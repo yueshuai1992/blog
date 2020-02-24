@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Egg.js</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.0bb10e40.css" as="style"><link rel="preload" href="/assets/js/app.b8c9f267.js" as="script"><link rel="preload" href="/assets/js/2.5effd679.js" as="script"><link rel="preload" href="/assets/js/33.db213850.js" as="script"><link rel="prefetch" href="/assets/js/10.1e9d6dd9.js"><link rel="prefetch" href="/assets/js/11.36899433.js"><link rel="prefetch" href="/assets/js/12.7b375376.js"><link rel="prefetch" href="/assets/js/13.ca272700.js"><link rel="prefetch" href="/assets/js/14.62f85eb1.js"><link rel="prefetch" href="/assets/js/15.254f14ec.js"><link rel="prefetch" href="/assets/js/16.cd77e345.js"><link rel="prefetch" href="/assets/js/17.37843c59.js"><link rel="prefetch" href="/assets/js/18.ff049040.js"><link rel="prefetch" href="/assets/js/19.8b84c72e.js"><link rel="prefetch" href="/assets/js/20.c4e0cf47.js"><link rel="prefetch" href="/assets/js/21.5ca97ceb.js"><link rel="prefetch" href="/assets/js/22.1c3d3481.js"><link rel="prefetch" href="/assets/js/23.fe8a6329.js"><link rel="prefetch" href="/assets/js/24.6e50e452.js"><link rel="prefetch" href="/assets/js/25.4e3061bc.js"><link rel="prefetch" href="/assets/js/26.99d8657b.js"><link rel="prefetch" href="/assets/js/27.a658b46b.js"><link rel="prefetch" href="/assets/js/28.3a81a88b.js"><link rel="prefetch" href="/assets/js/29.7731a3d8.js"><link rel="prefetch" href="/assets/js/3.b60c999d.js"><link rel="prefetch" href="/assets/js/30.5e4771dc.js"><link rel="prefetch" href="/assets/js/31.8b7a30d8.js"><link rel="prefetch" href="/assets/js/32.01da18cd.js"><link rel="prefetch" href="/assets/js/34.80b14b0d.js"><link rel="prefetch" href="/assets/js/35.832af720.js"><link rel="prefetch" href="/assets/js/36.af7bb98e.js"><link rel="prefetch" href="/assets/js/37.d454caa4.js"><link rel="prefetch" href="/assets/js/38.480b5662.js"><link rel="prefetch" href="/assets/js/4.cd2082ce.js"><link rel="prefetch" href="/assets/js/5.90db7dea.js"><link rel="prefetch" href="/assets/js/6.0e3d16be.js"><link rel="prefetch" href="/assets/js/7.31ff4035.js"><link rel="prefetch" href="/assets/js/8.ef9b5fc6.js"><link rel="prefetch" href="/assets/js/9.be78d7b3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0bb10e40.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="egg-js"><a href="#egg-js" class="header-anchor">#</a> Egg.js</h3> <ul><li><p>创建egg的环境</p> <div class="language- extra-class"><pre class="language-text"><code>sudo npm i egg-init -g
+</code></pre></div></li> <li><p>创建文件夹</p> <div class="language- extra-class"><pre class="language-text"><code>mkdir egg-example &amp;&amp; cd egg-example
+</code></pre></div></li> <li><p>初始化模板</p> <div class="language- extra-class"><pre class="language-text"><code>egg-init --type=simple
+</code></pre></div><p>或</p> <div class="language- extra-class"><pre class="language-text"><code>npm init egg --type=simple
+</code></pre></div></li> <li><p>安装依赖</p> <div class="language- extra-class"><pre class="language-text"><code>npm install
+</code></pre></div></li> <li><p>启动</p> <div class="language- extra-class"><pre class="language-text"><code>npm run dev
+</code></pre></div></li> <li><p>创建路由</p> <ul><li>建议分开router 创建routers文件夹，将路由文件放入放到特定文件</li> <li>编写路由 如：home.js<div class="language- extra-class"><pre class="language-text"><code>'use strict';
+
+/**
+ * @param {Egg.Application} app - egg application
+ */
+module.exports = app =&gt; {
+  const { router, controller } = app;
+  router.get('/hot', controller.home.findHot);
+  router.get('/heart', controller.home.findHeart);
+};
+</code></pre></div></li> <li>引用路由加使用 如：router.js<div class="language- extra-class"><pre class="language-text"><code>'use strict';
+
+var homeRouter = require('./routers/home.js');
+
+/**
+ * @param {Egg.Application} app - egg application
+ */
+module.exports = app =&gt; {
+  const { router, controller } = app;
+  router.get('/', controller.home.index);
+  homeRouter(app);
+};
+</code></pre></div></li></ul></li> <li><p>创建Service</p> <ul><li>创建service文件夹</li> <li>创建单个的service文件</li> <li>引入文件<div class="language- extra-class"><pre class="language-text"><code>const Service = require('egg').Service;
+</code></pre></div></li> <li>添加service方法+导出<div class="language- extra-class"><pre class="language-text"><code>class HomeService extends Service {
+    async findHot() {
+        const lists = [
+            {
+                name: '张三',
+                age: 20,
+                address: '南京'
+            }
+        ]
+
+        return lists;
+    }
+}
+
+module.exports = HomeService;
+</code></pre></div></li></ul></li> <li><p>创建Controller</p> <ul><li>创建controller文件</li> <li>引入service使用<div class="language- extra-class"><pre class="language-text"><code>'use strict';
+
+const Controller = require('egg').Controller;
+
+class HomeController extends Controller {
+  async findHot() {
+    this.ctx.body = await this.service.home.findHot();
+  }
+}
+
+module.exports = HomeController;
+</code></pre></div></li></ul></li> <li><p>格式化参数中间件</p> <ul><li>创建 params 文件<div class="language- extra-class"><pre class="language-text"><code>/**
+ * 获取请求参数中间件
+ * 可以使用ctx.params获取get或post请求参数
+ */
+
+module.exports = options =&gt; {
+    return async function params(ctx, next) {
+        ctx.params = {
+            ...ctx.query,
+            ...ctx.request.body
+        }
+        await next();
+    };
+};
+</code></pre></div></li> <li>在/config/config.default.js里注入中间件<div class="language- extra-class"><pre class="language-text"><code>'use strict';
+module.exports = appInfo =&gt; {
+  const config = exports = {};
+// 注入中间件
+  config.middleware = [
+    'params',
+  ];
+  return config;
+};
+</code></pre></div></li> <li>使用<div class="language- extra-class"><pre class="language-text"><code>async findOne() {
+    const {
+        ctx
+    } = this;
+    let {
+        id
+    } = ctx.params;
+    return {
+        message: '获取单个用户' + id,
+        code: 200
+    }
+}
+</code></pre></div></li></ul></li> <li><p>post 不能访问的问题</p> <p>打开config.default.js 中禁用 csrf</p> <div class="language- extra-class"><pre class="language-text"><code>const config = exports = {
+    security: {
+      csrf: {
+        enable: false,
+      },
+    }
+};
+</code></pre></div></li> <li><p>连接数据库</p> <div class="language- extra-class"><pre class="language-text"><code>npm i egg-mongoose --save
+</code></pre></div><ul><li>加载插件app/config/plugin.js<div class="language- extra-class"><pre class="language-text"><code>'use strict';
+module.exports = {
+  // enable plugins 
+  mongoose: {
+    enable: true,
+    package: 'egg-mongoose',
+  },
+};
+</code></pre></div></li> <li>配置MongoDB 的连接, 修改app/config/config.default.js<div class="language- extra-class"><pre class="language-text"><code>config.mongoose = {
+    client: {
+      url: 'mongodb://127.0.0.1/react-native-demo',
+      options: {},
+    },
+};
+</code></pre></div></li></ul></li> <li><p>创建model文件夹</p> <ul><li>创建model文件</li></ul> <div class="language- extra-class"><pre class="language-text"><code>'use strict';
+module.exports = app =&gt; {
+  const mongoose = app.mongoose;
+  const Schema = mongoose.Schema;
+
+  const UserSchema = new Schema({
+    userName: { type: String },
+    password: { type: String },
+  });
+
+  return mongoose.model('User', UserSchema);
+};
+</code></pre></div><ul><li>在service层使用</li></ul> <div class="language- extra-class"><pre class="language-text"><code>await this.ctx.model.User.find();
+</code></pre></div></li> <li><p>egg 跨域</p> <ul><li>安装egg-cors</li></ul> <div class="language- extra-class"><pre class="language-text"><code>npm i egg-cors -S
+</code></pre></div><ul><li>在config/plugin.js声明</li></ul> <div class="language- extra-class"><pre class="language-text"><code>exports.cors = {
+    enable: true,
+    package: 'egg-cors',
+};
+</code></pre></div><ul><li>在config/config.default.js配置</li></ul> <div class="language- extra-class"><pre class="language-text"><code>//跨域配置
+config.security = {
+    csrf: {
+      enable: false,
+      ignoreJSON: true
+    },
+    domainWhiteList: ['http://www.baidu.com', 'http://localhost:8080'], //配置白名单
+};
+  
+config.cors = {
+    // origin: '*', //允许所有跨域访问，注释掉则允许上面 白名单 访问
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+};
+</code></pre></div></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b8c9f267.js" defer></script><script src="/assets/js/2.5effd679.js" defer></script><script src="/assets/js/33.db213850.js" defer></script>
+  </body>
+</html>
